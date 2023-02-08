@@ -1,0 +1,25 @@
+{% extends 'book/base.html' %}
+
+{% block content %}
+
+    <h1>Reservations</h1>
+
+{% for book in reservation_list %}
+    <strong>{{ book }}</strong>
+    <ul>
+    <li><strong>Branch: </strong>{{ book.branch }}</li>
+    <li><strong>Date: </strong>{{ book.book_date }}</li>
+    <li><strong>Number of Guests: </strong>{{ book.people }}</li>
+    <li><strong>Contact Number: </strong>{{ book.phone }}</li>
+    <li><strong>Message: </strong>{{ book.message }}</li>
+    <li><strong>Person who booked reservation:</strong>
+        {% for user in book.guest.all %} 
+        {{ user }}
+        {% endfor %}
+    </li>
+    </ul>
+    <br/>
+{% endfor %}
+
+
+{% endblock %}

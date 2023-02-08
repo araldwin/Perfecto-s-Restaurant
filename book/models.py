@@ -34,7 +34,7 @@ class Book(models.Model):
     book_date = models.DateTimeField(default=datetime.now)
     people = models.CharField('# of People', max_length=3)
     message = models.TextField(blank=True)
-    bookings = models.ManyToManyField(MyRestaurantUser, blank=True)
+    guest = models.ManyToManyField(MyRestaurantUser, blank=True)
 
     # allows to pop up on the page and it will list the name
     def __str__(self):
