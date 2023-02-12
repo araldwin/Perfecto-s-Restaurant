@@ -12,7 +12,7 @@
     <form action="" method="post" role="form">
       {% csrf_token %}
 
-      {{ form.as_table }}
+      {{ form.as_p }}
       <input type="submit" value="Book a Table" class="btn btn-primary">
     </form>
   {% endif %}
