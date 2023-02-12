@@ -3,6 +3,8 @@ from django.http import HttpResponseRedirect
 from .models import Book
 from .forms import BookForm
 
+# Import Pagination
+from django.core.paginator import Paginator
 
 def delete_reservation(request, reservation_id):
     book = Book.objects.get(pk=reservation_id)
@@ -31,7 +33,7 @@ def update_reservation(request, reservation_id):
         form.save()
         return redirect('list-reservation')
 
-    return render(request, 'book/update_reservation.html', {'book': book, 'form':form})
+    return render(request, 'book/update_reservation.html', {'book': book, 'form': form})
 
 
 def show_reservation(request, reservation_id):
@@ -39,9 +41,19 @@ def show_reservation(request, reservation_id):
     return render(request, 'book/show_reservation.html', {'book': book})
 
 
+# Reservation_list page
+
+
 def list_reservation(request):
+    # reservation_list = Book.objects.all().order_by('book_date')
     reservation_list = Book.objects.all()
-    return render(request, 'book/reservation_list.html', {'reservation_list':reservation_list})
+
+    # Pagination
+    # Show 1 reservation per page.
+    paginator = Paginator(Book.objects.all(), 1)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'book/reservation_list.html', {'reservation_list': reservation_list, 'page_obj':  page_obj})
 
 
 def home(request):

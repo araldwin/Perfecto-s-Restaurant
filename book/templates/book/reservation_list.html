@@ -5,7 +5,7 @@
     <h1>Reservation list</h1>
     <br/>
 <table class="table table-success table-striped table-bordered table-hover">
-  {% for book in reservation_list %}
+  {% for book in page_obj %}
   <tr>
     <td>
       <a href="{% url 'show-reservation' book.id %}"> {{ book }} </a> 
@@ -14,5 +14,18 @@
     
   {% endfor %}
 </table>
+<br/>
+
+{% if page_obj.has_previous %}
+  <a href="?page=1">&laquo; first</a>
+  <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+{% endif %}
+
+Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+{% if page_obj.has_next %}
+   <a href="?page={{ page_obj.next_page_number }}">next</a>
+   <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+{% endif %}
 
 {% endblock %}
