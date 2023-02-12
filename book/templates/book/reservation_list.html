@@ -2,46 +2,17 @@
 
 {% block content %}
 
-    <h1>Reservations</h1>
+    <h1>Reservation list</h1>
     <br/>
-
-{% for book in reservation_list %}
-
-<div class="card">
-    <div class="card-header">
-        <strong>{{ book }}</strong>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title"><strong>Branch: </strong>{{ book.branch }}</h5>
-      <p class="card-text">
-
-        <ul>
-            <li><strong>Branch: </strong>{{ book.branch }}</li>
-            <li><strong>Branch Address: </strong>{{ book.branch.address }}</li>
-            <li><strong>Branch Email: </strong>{{ book.branch.branch_email }}</li>
-            <li><strong>Branch Phone: </strong>{{ book.branch.branch_phone }}</li>
-            <li><strong>Date: </strong>{{ book.book_date }}</li>
-            <li><strong>Number of Guests: </strong>{{ book.people }}</li>
-            <li><strong>Contact Number: </strong>{{ book.phone }}</li>
-            <li><strong>Message: </strong>{{ book.message }}</li>
-            <li><strong>Person who booked reservation:</strong>
-                {% for user in book.guest.all %} 
-                {{ user }}
-                {% endfor %}
-            </li>
-            </ul>
-
-      </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-
-
-
+<table class="table table-success table-striped table-bordered table-hover">
+  {% for book in reservation_list %}
+  <tr>
+    <td>
+      <a href="{% url 'show-reservation' book.id %}"> {{ book }} </a>
+    </td>
+  </tr>
     
-    
-    <br/>
-{% endfor %}
-
+  {% endfor %}
+</table>
 
 {% endblock %}

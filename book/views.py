@@ -18,9 +18,14 @@ def add_reservation(request):
     return render(request, 'book/add_reservation.html', {'form': form, 'submitted':submitted})
 
 
-def all_reservations(request):
+def show_reservation(request, reservation_id):
+    book = Book.objects.get(pk=reservation_id)
+    return render(request, 'book/show_reservation.html', {'book': book})
+
+
+def list_reservation(request):
     reservation_list = Book.objects.all()
-    return render(request, 'book/reservation_list.html', {'reservation_list': reservation_list})
+    return render(request, 'book/reservation_list.html', {'reservation_list':reservation_list})
 
 
 def home(request):
