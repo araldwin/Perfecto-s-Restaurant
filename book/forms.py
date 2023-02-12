@@ -24,5 +24,5 @@ class BookForm(ModelForm):
             'branch': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Branch'}),
             'book_date': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Date'}),
             'people': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '# of people'}),
-            'message': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Message'}),
+            'message': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Message'}),
         }

@@ -8,7 +8,10 @@
   {% for book in reservation_list %}
   <tr>
     <td>
-      <a href="{% url 'show-reservation' book.id %}"> {{ book }} </a>
+      <a href="{% url 'show-reservation' book.id %}"> {{ book }} </a> 
+    </td>
+    <td align="right">
+      <a href="{% url 'update-reservation' book.id %}" class="btn btn-outline-success btn-sm">Update</a>
     </td>
   </tr>
     
