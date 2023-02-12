@@ -19,6 +19,7 @@
     </div>
     <div class="card-footer text-muted">
       <a href="{% url 'update-reservation' book.id %}" class="btn btn-outline-success btn-sm">Update</a>
+      <a href="{% url 'delete-reservation' book.id %}" class="btn btn-outline-danger btn-sm">Cancel</a>
     </div>
   </div>
 {% endblock %}

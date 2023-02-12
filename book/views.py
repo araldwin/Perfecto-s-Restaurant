@@ -4,6 +4,12 @@ from .models import Book
 from .forms import BookForm
 
 
+def delete_reservation(request, reservation_id):
+    book = Book.objects.get(pk=reservation_id)
+    book.delete()
+    return redirect('list-reservation')
+
+
 def add_reservation(request):
     submitted = False
     if request.method == "POST":
