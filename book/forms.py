@@ -10,19 +10,19 @@ class BookForm(ModelForm):
         fields = ('name', 'phone', 'branch', 'book_date', 'people', 'message')
 
         labels = {
-            'name': '',
-            'phone': '',
-            'branch': '',
-            'book_date': '',
-            'people': '',
-            'message': '',
+            'name': 'Name',
+            'phone': 'Phone',
+            'branch': 'Branch',
+            'book_date': 'Date',
+            'people': 'How many People',
+            'message': 'Note',
 
         }
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Name'}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your full name'}),
             'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Phone'}),
-            'branch': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Branch'}),
+            'branch': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Which branch'}),
             'book_date': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Date'}),
             'people': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '# of people'}),
-            'message': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Message'}),
+            'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Your Message'}),
         }

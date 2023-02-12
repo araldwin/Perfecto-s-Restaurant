@@ -5,20 +5,20 @@
 
 <div class="card">
     <div class="card-header">
-        Reservation details:
+      Reservation details:
     </div>
     <div class="card-body">
-        <h5 class="card-title"><strong>Branch: </strong>{{ book.branch }}</h5>
-        <p class="card-text">
-        <ul>
-            <li><strong>Name: </strong>{{ book.name }}</li>
-            <li><strong>Date: </strong>{{ book.book_date }}</li>
-            <li><strong>Number of Guests: </strong>{{ book.people }}</li>
-            <li><strong>Contact Number: </strong>{{ book.phone }}</li>
-            <li><strong>Message: </strong>{{ book.message }}</li>
-        
-        </ul>
-        </p>
-     
-</div>
+      <h5 class="card-title">Branch: </strong>{{ book.branch }}</h5>
+      <p class="card-text"><ul>
+        <li><strong>Name: </strong>{{ book.name }}</li>
+        <li><strong>Date: </strong>{{ book.book_date }}</li>
+        <li><strong>Number of Guests: </strong>{{ book.people }}</li>
+        <li><strong>Contact Number: </strong>{{ book.phone }}</li>
+        <li><strong>Message: </strong>{{ book.message }}</li>
+    </ul></p>
+    </div>
+    <div class="card-footer text-muted">
+      <a href="{% url 'update-reservation' book.id %}" class="btn btn-outline-success btn-sm">Update</a>
+    </div>
+  </div>
 {% endblock %}
