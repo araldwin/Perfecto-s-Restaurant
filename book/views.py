@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
-from .models import *
+from .models import Book, MyRestaurantUser
 from .forms import BookForm
 from django.contrib.auth.decorators import login_required
-from .decorators import allowed_users, admin_only
 
 # Import Pagination
 from django.core.paginator import Paginator
@@ -13,18 +12,13 @@ def home(request):
     return render(request, 'book/home.html', {})
 
 
-def user_page(request):
-    context = {}
-    return render(request, 'book/user.html', context)
-
-
 def delete_reservation(request, reservation_id):
     book = Book.objects.get(pk=reservation_id)
     book.delete()
     return redirect('list-reservation')
 
 
-@login_required(login_url='login')
+
 def add_reservation(request):
     submitted = False
     if request.method == "POST":
@@ -56,8 +50,7 @@ def show_reservation(request, reservation_id):
 
 # Reservation_list page
 
-@admin_only
-@allowed_users(allowed_roles=['admin', 'customer'])
+
 def list_reservation(request):
     # reservation_list = Book.objects.all().order_by('book_date')
     reservation_list = Book.objects.all()

@@ -7,10 +7,11 @@ now = timezone.now()
 
 
 class MyRestaurantUser(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     first_name = models.CharField('First Name', max_length=50)
     last_name = models.CharField('Last Name', max_length=50)
-    email = models.EmailField('Email', unique=True, max_length=50)
-    # email cannot be duplicate on db
+    email = models.EmailField('Email', blank=True, max_length=50)
+
 
     # allows to pop up on the page and it will list the name
     def __str__(self):
@@ -30,10 +31,8 @@ class Branch(models.Model):
 
 
 class Book(models.Model):
-    name = models.CharField('Guest Name', unique=True, max_length=50)
-    # name cannot be duplicate on db
-    phone = models.CharField('Guest Phone', unique=True, max_length=50)
-    # phone cannot be duplicate on db
+    name = models.CharField('Guest Name', max_length=50)
+    phone = models.CharField('Guest Phone', max_length=50)
     branch = models.ForeignKey(Branch, null=True, on_delete=models.CASCADE)
     book_date = models.DateTimeField(default=datetime.now)
     people = models.CharField('# of Guest', max_length=3)
