@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect
 from .models import Book, MyRestaurantUser
 from .forms import BookForm
@@ -23,8 +23,11 @@ def add_reservation(request):
     submitted = False
     if request.method == "POST":
         form = BookForm(request.POST)
+        # when user add_reservatation it will be automatic myrestaurant user
         if form.is_valid():
-            form.save()
+            book = form.save(commit=False)
+            book.myrestaurantuser = request.user.myrestaurantuser
+            book.save()
             return HttpResponseRedirect('/add_reservation?submitted=True')
     else:
         form = BookForm
@@ -50,14 +53,13 @@ def show_reservation(request, reservation_id):
 
 # Reservation_list page
 
-
+@login_required
 def list_reservation(request):
-    # reservation_list = Book.objects.all().order_by('book_date')
-    reservation_list = Book.objects.all()
+    reservation_list = Book.objects.filter(myrestaurantuser__user=request.user)
 
     # Pagination
-    # Show 1 reservation per page.
-    paginator = Paginator(Book.objects.all(), 5)
+    # Show 5 reservation per page.
+    paginator = Paginator(reservation_list, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'book/reservation_list.html', {'reservation_list': reservation_list, 'page_obj':  page_obj})

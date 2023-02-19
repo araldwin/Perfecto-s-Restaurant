@@ -23,7 +23,7 @@ class Branch(models.Model):
     address = models.CharField(max_length=300)
     branch_email = models.EmailField('Branch Email', max_length=50)
     branch_phone = models.CharField('Branch Phone', max_length=50)
-    manager = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    
 
     # allows to pop up on the page and it will list the name
     def __str__(self):
@@ -37,7 +37,7 @@ class Book(models.Model):
     book_date = models.DateTimeField(default=datetime.now)
     people = models.CharField('# of Guest', max_length=3)
     message = models.TextField(blank=True)
-    guest = models.ForeignKey(MyRestaurantUser, blank=True,
+    myrestaurantuser = models.ForeignKey(MyRestaurantUser, blank=True,
                               null=True, on_delete=models.CASCADE)
 
     # allows to pop up on the page and it will list the name

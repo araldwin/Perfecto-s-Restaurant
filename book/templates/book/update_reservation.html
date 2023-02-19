@@ -3,9 +3,6 @@
 {% block content %}
 {% if user.is_authenticated %}
     <h1>Update My Reservation</h1>
-    
-    Logged in user: {{ user }}
-
     <br>
     <form action="" method="POST">
         {% csrf_token %}
