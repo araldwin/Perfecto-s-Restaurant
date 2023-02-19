@@ -2,6 +2,14 @@
 
 {% block content %}
 
+
+{% if form.errors %}
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            Sorry, double booking is not allowed!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+{% endif %}
+
 {% if user.is_authenticated %}
   <div class="section-title">
       <h2>Reservation</h2>
@@ -12,7 +20,6 @@
     Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!
   </div>
     
-
   {% else %}
     <form action="" method="post" role="form">
       {% csrf_token %}

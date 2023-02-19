@@ -19,21 +19,33 @@ def delete_reservation(request, reservation_id):
 
 
 
+
 def add_reservation(request):
     submitted = False
     if request.method == "POST":
         form = BookForm(request.POST)
-        # when user add_reservatation it will be automatic myrestaurant user
         if form.is_valid():
-            book = form.save(commit=False)
-            book.myrestaurantuser = request.user.myrestaurantuser
-            book.save()
-            return HttpResponseRedirect('/add_reservation?submitted=True')
+            # Check if the user has already made a reservation for the given time slot
+            existing_reservations = Book.objects.filter(
+                myrestaurantuser=request.user.myrestaurantuser,
+                book_date=form.cleaned_data['book_date'],
+            
+            )
+            if existing_reservations.exists():
+                # If a reservation already exists for the user and time slot, display an error message
+                form.add_error(None, 'You have already made a reservation for this date.')
+            else:
+                # If no reservation exists, create a new one for the user
+                book = form.save(commit=False)
+                book.myrestaurantuser = request.user.myrestaurantuser
+                book.save()
+                return HttpResponseRedirect('/add_reservation?submitted=True')
     else:
-        form = BookForm
+        form = BookForm()
         if 'submitted' in request.GET:
             submitted = True
     return render(request, 'book/add_reservation.html', {'form': form, 'submitted': submitted})
+
 
 
 def update_reservation(request, reservation_id):
@@ -55,6 +67,10 @@ def show_reservation(request, reservation_id):
 
 @login_required
 def list_reservation(request):
+    '''
+     The reservation_list will be filtered by the User corresponding to the currently logged-in user, as specified by request.user.
+     The filter expression uses the __ syntax to follow the foreign key relationship to the MyRestaurantUser model, and then to its user field.
+    '''
     reservation_list = Book.objects.filter(myrestaurantuser__user=request.user)
 
     # Pagination
