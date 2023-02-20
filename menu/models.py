@@ -7,7 +7,7 @@ class Menu(models.Model):
     description = models.TextField(max_length=500)
     people = models.IntegerField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
-    image = CloudinaryField('image', default='placeholder')
+    image = models.ImageField(upload_to='menu/', blank=True)
     slug = models.SlugField(blank=True, null=True)
 
     def save(self, *args, **kwargs):

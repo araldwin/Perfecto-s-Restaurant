@@ -1,9 +1,17 @@
 {% extends 'book/base.html' %}
 
 {% block content %}
-{% if user.is_authenticated %}
-    <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
-{% else %}
-    <p>Welcome, new user. Please log in.</p>
-{% endif %}
+
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container position-relative">
+          <div class="hero-content text-center">
+            <h1>Welcome to <span>Perfecto's</span></h1>
+            <div class="btns">
+              <a href="{% url 'add-reservation' %}" class="btn-book ">Reserve a Table</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
 {% endblock %}

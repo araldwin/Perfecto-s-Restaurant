@@ -8,7 +8,7 @@
   {% for book in page_obj %}
   <tr>
     <td>
-      <a href="{% url 'show-reservation' book.id %}"> {{ book }} </a> 
+      <a href="{% url 'show-reservation' book.id %}"> {{ book }} - {{ book.book_date }}</a> 
     </td>
   </tr>
     

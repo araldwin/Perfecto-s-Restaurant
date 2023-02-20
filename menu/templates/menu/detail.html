@@ -1,0 +1,17 @@
+
+
+{% extends 'book/base.html' %}
+{% load cloudinary %}
+{% block content %}
+
+<h1>Menu Detail:</h1>
+
+<h3>{{menu_detail}}</h3>
+
+<p>{{menu_detail.description}}</p>
+<p>Good for {{menu_detail.people}} person</p>
+<p>€{{menu_detail.price}}</p>
+
+{% cloudinary menu_detail.image.name width=500 height=500 %}
+
+{% endblock %}
