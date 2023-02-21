@@ -3,36 +3,77 @@
 {% block content %}
 
 
+
+
+
+
+
 {% if form.errors %}
-	<div class="alert alert-warning alert-dismissible fade show" role="alert">
-            Sorry, double booking is not allowed!
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  Sorry, double booking is not allowed!
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+<section id="reservation">
+  <div class="container position-relative">
+    <div class="reservation-conten">
+      {% if user.is_authenticated %}
+      <div class="section-title">
+        <h2>Reservation</h2>
+        <p>Book a Table</p>
+      </div>
+      {% if submitted %}
+      <div class="alert alert-success" role="alert">
+        Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!
+      </div>
+
+      {% else %}
+      <form action="" method="post" role="form">
+        {% csrf_token %}
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 form-group">
+            Name:
+            {{ form.name }}
           </div>
-{% endif %}
+          <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+            Phone:
+            {{ form.phone }}
+          </div>
+          <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+            Select Branch:
+            {{ form.branch }}
+          </div>
+          <div class="col-lg-4 col-md-6 form-group mt-3">
+            Date:
+            {{ form.book_date }}
+          </div>
+          <div class="col-lg-4 col-md-6 form-group mt-3">
+            Time:
+            {{ form.book_time }}
+          </div>
+          <div class="col-lg-4 col-md-6 form-group mt-3">
+            No. of Guest
+            {{ form.people }}
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          Note:
+          {{ form.message }}
+        </div>
+        <br>
+        <div class="text-center"><input type="submit" value="Reserve Table"></div>
+        <br>
+      </form>
+      {% endif %}
 
-{% if user.is_authenticated %}
-  <div class="section-title">
-      <h2>Reservation</h2>
-      <p>Book a Table</p>
+      {% else %}
+      <h1>You must be logged in to view this Page.</h1>
+      <a href="{% url 'login' %}">Login Here</a>
+      {% endif %}
+    </div>
   </div>
-  {% if submitted %}
-  <div class="alert alert-success" role="alert">
-    Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!
-  </div>
-    
-  {% else %}
-    <form action="" method="post" role="form">
-      {% csrf_token %}
-
-      {{ form.as_p }}
-      <input type="submit" value="Book a Table" class="btn btn-primary">
-    </form>
-  {% endif %}
-
-{% else %}
-  <h1>You must be logged in to view this Page.</h1>
-  <a href="{% url 'login' %}">Login Here</a>
-{% endif %}
 
 
-{% endblock %}
+
+  {% endblock %}
