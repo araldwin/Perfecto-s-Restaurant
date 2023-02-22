@@ -3,15 +3,15 @@
         <div class="container">
 
             {% if user.is_authenticated %}
-                <a href="{% url 'logout' %}">LOGOUT</a>
+            <a href="{% url 'logout' %}">LOGOUT</a>
             {% else %}
 
-                <a href="{% url 'login' %}">LOGIN</a> |
+            <a href="{% url 'login' %}">LOGIN</a> |
 
-                <a href="{% url 'register_user' %}"><span>REGISTER</span></a>
+            <a href="{% url 'register_user' %}"><span>REGISTER</span></a>
             {% endif %}
 
-           
+
         </div>
     </div>
 </div>

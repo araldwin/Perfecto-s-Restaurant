@@ -2,12 +2,6 @@
 
 {% block content %}
 
-
-
-
-
-
-
 {% if form.errors %}
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
   Sorry, double booking is not allowed!
@@ -67,13 +61,14 @@
       </form>
       {% endif %}
 
-      {% else %}
-      <h1>You must be logged in to view this Page.</h1>
-      <a href="{% url 'login' %}">Login Here</a>
-      {% endif %}
+{% else %}
+<br><br><br><br><br><br>
+<h1>You must be logged in to view this Page.</h1>
+<a href="{% url 'login' %}">Login Here</a>
+{% endif %}
     </div>
   </div>
 
 
 
-  {% endblock %}
+{% endblock %}

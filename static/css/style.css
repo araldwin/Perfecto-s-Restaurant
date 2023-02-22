@@ -178,3 +178,8 @@ a.nav-link.btn-reservation {
   justify-content: flex-end;
   gap: 10px;
 }
+
+/* ------------------------------------------------------------------- Login page */
+ .card-header h2, label {
+  color: #0c0b09;
+ }
