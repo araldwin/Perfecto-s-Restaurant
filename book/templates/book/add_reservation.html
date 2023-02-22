@@ -12,7 +12,7 @@
   <div class="container position-relative">
     <div class="reservation-conten">
       {% if user.is_authenticated %}
-      <div class="section-title">
+      <div class="section-title p-3">
         <h2>Reservation</h2>
         <p>Book a Table</p>
       </div>
@@ -33,10 +33,6 @@
           <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
             Phone:
             {{ form.phone }}
-          </div>
-          <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-            Select Branch:
-            {{ form.branch }}
           </div>
           <div class="col-lg-4 col-md-6 form-group mt-3">
             Date:
@@ -63,7 +59,7 @@
 
 {% else %}
 <br><br><br><br><br><br>
-<h1>You must be logged in to view this Page.</h1>
+<h1>You must be logged in to book a reservation.</h1>
 <a href="{% url 'login' %}">Login Here</a>
 {% endif %}
     </div>

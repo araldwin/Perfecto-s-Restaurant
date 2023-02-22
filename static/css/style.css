@@ -36,8 +36,8 @@ h6 {
 }
 
 .navbar {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  /* padding-top: 20px;
+  padding-bottom: 20px; */
   margin-top: 30px;
 }
 
@@ -183,3 +183,5 @@ a.nav-link.btn-reservation {
  .card-header h2, label {
   color: #0c0b09;
  }
+
+ 

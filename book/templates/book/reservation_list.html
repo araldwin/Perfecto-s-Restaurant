@@ -1,31 +1,39 @@
 {% extends 'book/base.html' %}
 
 {% block content %}
+    
+<div class="d-flex justify-content-center pt-5">
+  <h1>Reservation list</h1>
+</div>
 
-    <h1>Reservation list</h1>
-    <br/>
+<div class="d-flex justify-content-center p-5">
 <table class="table table-success table-striped table-bordered table-hover">
   {% for book in page_obj %}
   <tr>
     <td>
-      <a href="{% url 'show-reservation' book.id %}"> {{ book }} - {{ book.book_date }}</a> 
+      <a class="d-flex justify-content-center" href="{% url 'show-reservation' book.id %}"> {{ book }} - {{ book.book_date }}</a> 
     </td>
   </tr>
     
   {% endfor %}
 </table>
-<br/>
+</div>
 
-{% if page_obj.has_previous %}
-  <a href="?page=1">&laquo; first</a>
-  <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-{% endif %}
 
-Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+<div class="d-flex justify-content-center">
+  {% if page_obj.has_previous %}
+    <a href="?page=1">&laquo; first</a>
+    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+  {% endif %}
 
-{% if page_obj.has_next %}
-   <a href="?page={{ page_obj.next_page_number }}">next</a>
-   <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-{% endif %}
+  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">next</a>
+    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+  {% endif %}
+</div>
+
+
 
 {% endblock %}
