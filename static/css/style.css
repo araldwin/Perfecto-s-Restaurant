@@ -36,30 +36,18 @@ h6 {
 }
 
 .navbar {
-  /* padding-top: 20px;
-  padding-bottom: 20px; */
+  padding-top: 20px;
+  padding-bottom: 20px;
   margin-top: 30px;
+  background: linear-gradient(to bottom, rgb(0, 0, 0), transparent);
 }
 
 .navbar ul.navbar-nav li.nav-item {
   padding-left: 40px;
 }
 
-.navbar .nav-link.active {
-  color: #fea116;
-}
-
-a.nav-link.btn-reservation {
-  background-color: #fea116;
-  color: #0c0b09;
-  border-radius: 5px;
-  padding: 10px 14px;
-}
-
-.bg-blur {
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  background-color: rgba(9, 9, 9, 0.7);
+.navbar .nav-link {
+  color: #ffffff;
 }
 
 .login-container {
@@ -75,16 +63,17 @@ a.nav-link.btn-reservation {
 }
 
 /* mobile screen */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 991px) {
   .navbar {
     padding-top: 10px;
     padding-bottom: 10px;
+    background: transparent;
   }
 
   .navbar ul.navbar-nav li.nav-item {
     text-align: center;
     padding: 5px 0px;
-    border-top: 1px solid #241b07;
+    border-top: 1px solid rgb(112, 102, 80, 0.5);
   }
 
   .navbar ul.navbar-nav li.nav-item:first-child,
@@ -105,38 +94,47 @@ a.nav-link.btn-reservation {
       center/1em auto no-repeat;
     filter: invert(0.5) grayscale(100%) brightness(100%);
   }
+
+  .bg-blur-mobile {
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    background-color: rgba(9, 9, 9, 0.5);
+  }
 }
 
 /* end of navigation */
 
+/* main content */
+
+main > div {
+  padding-top: 150px;
+}
+
+/* end of main content */
+
 /* ------------------------------------------------------------------- Hero */
 
-#hero .hero-content {
+section > .hero-content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1000;
 }
 
-#hero {
-  width: 100%;
+.hero-content > h1 {
+  text-shadow: 0px 1px 40px rgba(0, 0, 0, 0.2);
+  font-size: 35px;
+}
+
+.hero-content > h1 > span {
+  font-size: 55px;
+}
+
+.hero-carousel > .carousel-inner > .carousel-item > img {
   height: 100vh;
-  background: url("https://res.cloudinary.com/dhign8ar8/image/upload/v1676896276/hero-bg_wj6qoh.jpg")
-    top center;
-  background-size: cover;
-  position: relative;
-  padding: 0;
-}
-
-#hero:before {
-  content: "";
-  background: #0c0b09;
-  opacity: 0.5;
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
+  object-fit: cover;
 }
 
 /* ------------------------------------------------------------------- Make a reservation */
@@ -180,8 +178,19 @@ a.nav-link.btn-reservation {
 }
 
 /* ------------------------------------------------------------------- Login page */
- .card-header h2, label {
+.card-header h2,
+label {
   color: #0c0b09;
- }
+}
 
- 
+/* common */
+.btn-reservation {
+  background-color: #fea116;
+  color: #0c0b09 !important;
+  border-radius: 5px;
+  padding: 10px 14px;
+}
+
+.btn-reservation.white {
+  color: #ffffff;
+}
