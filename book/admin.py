@@ -12,7 +12,7 @@ admin.site.register(MyRestaurantUser)
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     list_display = ('name', 'phone',
-                    'book_date', 'people', 'message', 'myrestaurantuser',)
+                    'book_date','book_time', 'people', 'message', 'myrestaurantuser',)
     search_fields = ('name', 'phone',
                      'book_date', 'people', 'message')
     list_filter = ('book_date',)
