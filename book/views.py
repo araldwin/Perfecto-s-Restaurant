@@ -116,11 +116,6 @@ def register_user(request):
 		if form.is_valid():
 			user = form.save()
 			username = form.cleaned_data.get('username')
-
-			group = Group.objects.get(name='myrestaurantuser')
-			user.groups.add(group)
-			MyRestaurantUser.objects.create(user=user, first_name=user.first_name, last_name=user.last_name)
-			login(request, user)
 			messages.success(request, ("Registration Successful!"))
 			return redirect('home')
 
