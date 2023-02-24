@@ -242,6 +242,12 @@ span.validation-message {
   border: none;
 }
 
+#response-message {
+  font-size: 12px;
+  text-align: center;
+  margin: 15px 0px;
+}
+
 /* end of modals */
 
 /* animations */

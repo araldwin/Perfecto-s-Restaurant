@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Book, MyRestaurantUser
 from .forms import BookForm
 from django.contrib.auth.decorators import login_required
@@ -99,11 +99,9 @@ def login_user(request):
 
 		if user is not None:
 			login(request, user)
-			return redirect('home')
+			return HttpResponse("Success")
 		else:
-			messages.success(request, ("There Was An Error Logging In, Try Again..."))
-			return redirect('login')
-
+			return HttpResponse("There Was An Error Logging In, Try Again...")
 	else:
 		return render(request, 'registration/login.html', {})
 

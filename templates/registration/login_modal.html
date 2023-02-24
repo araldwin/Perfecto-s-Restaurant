@@ -10,11 +10,11 @@
                     <span><img class="modal-logo" src="../../static/images/Perfecto's.png" height="120" alt=""></span>
                 </div>
 
-                <div class="title">
-                    LOGIN TO YOUR ACCOUNT
+                <div class="messages">
+                    <p id="response-message"></p>
                 </div>
 
-                <form action="" method=POST>
+                <form id="login-form" method=POST>
                     {% csrf_token %}
                     <div class="mb-3">
                         <input type="text" class="form-control" name="username" id="username" placeholder="Username"
@@ -29,7 +29,8 @@
                     </div>
 
                     <div class="card-footer">
-                        <input type="submit" value="Sign In" class="btn btn-secondary float-end btn-reservation">
+                        <input id="login-button" type="submit" value="Log In"
+                            class="btn btn-secondary float-end btn-reservation">
                     </div>
 
                 </form>
