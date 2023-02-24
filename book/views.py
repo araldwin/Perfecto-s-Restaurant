@@ -119,16 +119,15 @@ def register_user(request):
 		if form.is_valid():
 			user = form.save()
 			username = form.cleaned_data.get('username')
-
 			group = Group.objects.get(name='myrestaurantuser')
 			user.groups.add(group)
-			MyRestaurantUser.objects.create(user=user, first_name=user.first_name, last_name=user.last_name)
+			MyRestaurantUser.objects.create(user=user, first_name=user.first_name,
+                                   last_name=user.last_name)
 			login(request, user)
-			messages.success(request, ("Registration Successful!"))
-			return redirect('home')
-
-	return render(request, 'registration/register_user.html', {
-            'form': form,
-        })
+			message = 'Registration Successful!'
+			return HttpResponse(message, status=200)
+		else:
+			return HttpResponse(form.as_p(), status=400)
+	return render(request, 'registration/register_modal.html', {'form':  form})
 
 

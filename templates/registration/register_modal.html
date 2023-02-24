@@ -10,16 +10,43 @@
                     <span><img class="modal-logo" src="../../static/images/Perfecto's.png" height="120" alt=""></span>
                 </div>
 
-                <div class="title">
-                    LOGIN TO YOUR ACCOUNT
+                <div class="messages">
+                    <p id="response-message"></p>
                 </div>
 
-                <form action="{% url 'register_user' %}" method=POST>
+                <form id="register-form" action="{% url 'register_user' %}" method=POST>
                     {% csrf_token %}
-                    {{ form.as_p }}
-                    <input type="submit" value="Register" class="btn btn-secondary btn-reservation">
+                    <div id="form-content"> {{ form.as_p }}</div>
+                    <input type="submit" id="register-btn" value="Register" class="btn btn-secondary btn-reservation">
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $(function () {
+        let register_btn = $("#register-btn")
+        if (register_btn) {
+            register_btn.on("click", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '/register_user',
+                    type: 'post',
+                    data: $('#register-form').serialize(),
+                    success: function (data) {
+                        $('#register-form').find('#form-content').html("")
+                        $('.register-modal #response-message').text(data).addClass("text-success")
+                        window.location.replace("/");
+                    },
+                    error: function (data) {
+                        $('#register-form').find('#form-content').html(data.responseText)
+                        $("#register-form ul.errorlist li, #register-form ul.errorlist").each(function (el) {
+                            $(this).css('display', 'block')
+                        })
+                    }
+                });
+            });
+        }
+    });
+</script>
