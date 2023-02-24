@@ -25,7 +25,7 @@ class Book(models.Model):
     which allows Book objects to be represented as 
     strings in a human-readable format.
     '''
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     name = models.CharField('Guest Name', max_length=50)
     phone = models.CharField('Guest Phone', max_length=50)
     email = models.EmailField('Email', blank=True, max_length=50)
