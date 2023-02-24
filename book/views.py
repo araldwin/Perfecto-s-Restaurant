@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Book, MyRestaurantUser
+from .models import Book
 from .forms import BookForm
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
@@ -26,26 +26,23 @@ def delete_reservation(request, reservation_id):
     return redirect('list-reservation')
 
 
-
-
 def add_reservation(request):
     submitted = False
     if request.method == "POST":
         form = BookForm(request.POST)
         if form.is_valid():
-            # Check if the user has already made a reservation for the given time slot
+            # Check if the user has already made a reservation for the given date slot
             existing_reservations = Book.objects.filter(
-                myrestaurantuser=request.user.myrestaurantuser,
+                user=request.user,
                 book_date=form.cleaned_data['book_date'],
-            
             )
             if existing_reservations.exists():
                 # If a reservation already exists for the user and time slot, display an error message
-                form.add_error(None, 'You have already made a reservation for this date.')
+                form.add_error(None, 'This time slot is already reserved..')
             else:
                 # If no reservation exists, create a new one for the user
                 book = form.save(commit=False)
-                book.myrestaurantuser = request.user.myrestaurantuser
+                book.user = request.user
                 book.save()
                 return HttpResponseRedirect('/add_reservation?submitted=True')
     else:
@@ -79,7 +76,7 @@ def list_reservation(request):
      The reservation_list will be filtered by the User corresponding to the currently logged-in user, as specified by request.user.
      The filter expression uses the __ syntax to follow the foreign key relationship to the MyRestaurantUser model, and then to its user field.
     '''
-    reservation_list = Book.objects.filter(myrestaurantuser__user=request.user)
+    reservation_list = Book.objects.filter(user=request.user)
 
     # Pagination
     # Show 5 reservation per page.
@@ -119,10 +116,6 @@ def register_user(request):
 		if form.is_valid():
 			user = form.save()
 			username = form.cleaned_data.get('username')
-			group = Group.objects.get(name='myrestaurantuser')
-			user.groups.add(group)
-			MyRestaurantUser.objects.create(user=user, first_name=user.first_name,
-                                   last_name=user.last_name)
 			login(request, user)
 			message = 'Registration Successful!'
 			return HttpResponse(message, status=200)

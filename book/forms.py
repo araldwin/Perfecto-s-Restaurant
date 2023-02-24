@@ -33,12 +33,13 @@ class BookForm(ModelForm):
 
     class Meta:
         model = Book
-        fields = ('name', 'phone', 'book_date',
+        fields = ('name', 'phone', 'book_date', 'email',
                   'book_time', 'people', 'message')
 
         labels = {
             'name': 'Name',
             'phone': 'Phone',
+            'email': 'Email',
             'book_date': 'Date',
             'book_time': 'Time',
             'people': 'How many People',
@@ -50,6 +51,8 @@ class BookForm(ModelForm):
                                     'placeholder': 'Your full name'}),
             'phone': forms.TextInput(attrs={'class': 'form-control',
                                      'placeholder': 'Your Phone'}),
+            'email': forms.TextInput(attrs={'class': 'form-control',
+                                     'placeholder': 'Your Email'}),
             'people': forms.TextInput(attrs={'class': 'form-control',
                                       'placeholder': '# of people'}),
             'message': forms.Textarea(attrs={'class': 'form-control',
