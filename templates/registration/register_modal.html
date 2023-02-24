@@ -1,0 +1,25 @@
+<div class="form-modal register-modal modal fade " id="registerModal" tabindex="-1" aria-labelledby="loginModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="logo-container display-flex">
+                    <span><img class="modal-logo" src="../../static/images/Perfecto's.png" height="120" alt=""></span>
+                </div>
+
+                <div class="title">
+                    LOGIN TO YOUR ACCOUNT
+                </div>
+
+                <form action="{% url 'register_user' %}" method=POST>
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Register" class="btn btn-secondary btn-reservation">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

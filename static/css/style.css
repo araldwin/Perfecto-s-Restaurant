@@ -118,17 +118,19 @@ section > .hero-content {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: -100px;
+  margin-left: -150px;
   z-index: 1000;
+  animation: fadeInUp 1.5s 1s;
 }
 
 .hero-content > h1 {
   text-shadow: 0px 1px 40px rgba(0, 0, 0, 0.2);
-  font-size: 35px;
+  font-size: 40px;
 }
 
 .hero-content > h1 > span {
-  font-size: 55px;
+  font-size: 75px;
 }
 
 .hero-carousel > .carousel-inner > .carousel-item > img {
@@ -193,4 +195,63 @@ label {
 
 .btn-reservation.white {
   color: #ffffff;
+}
+
+span.validation-message {
+  color: #a40000;
+  font-size: 12px;
+}
+
+/* modals */
+
+.login-modal .modal-dialog {
+  width: 300px;
+}
+
+.register-modal .modal-dialog {
+  width: 400px;
+}
+
+@media only screen and (max-width: 575px) {
+  .login-modal .modal-dialog,
+  .register-modal .modal-dialog {
+    width: 100%;
+  }
+}
+
+.form-modal .modal-content {
+  border: none;
+  border-radius: 5px;
+}
+
+.form-modal .logo-container {
+  align-items: center;
+  justify-content: center;
+}
+
+.form-modal form {
+  margin: 20px 0;
+}
+
+.form-modal form input {
+  border-radius: 5px;
+  width: 100%;
+}
+
+.form-modal form input[type="submit"] {
+  border: none;
+}
+
+/* end of modals */
+
+/* animations */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

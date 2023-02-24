@@ -5,9 +5,12 @@
         <a href="{% url 'logout' %}">LOGOUT</a>
         {% else %}
 
-        <a href="{% url 'login' %}">LOGIN</a> |
+        <a href="#" role="button" data-bs-toggle="modal" data-bs-target="#loginModal">LOGIN</a> |
 
-        <a href="{% url 'register_user' %}"><span>REGISTER</span></a>
+        <a href="#" role="button" data-bs-toggle="modal" data-bs-target="#registerModal"><span>REGISTER</span></a>
         {% endif %}
     </div>
 </div>
+
+{% include 'registration/login_modal.html' %}
+{% include 'registration/register_modal.html' %}
