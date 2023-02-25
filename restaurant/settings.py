@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
@@ -89,9 +90,11 @@ WSGI_APPLICATION = 'restaurant.wsgi.application'
 #     }
 # }
 
+DATABASE_URL = os.getenv('DATABASE_URL')
 DATABASES = {
-     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
- }
+    'default': dj_database_url.config(),
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
