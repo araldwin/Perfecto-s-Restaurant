@@ -102,7 +102,6 @@ class BookFormTest(TestCase):
         self.assertEqual(form.errors['people'], [
                          'Please enter the number of guests.'])
 
-   
     def test_clean_people(self):
         form_data = {
             'name': 'Juan tamad',
@@ -130,11 +129,8 @@ class BookFormTest(TestCase):
         form = BookForm(data=form_data)
         self.assertFalse(form.is_valid())
         self.assertIn('people', form.errors)
-        self.assertEqual(form.errors['people'], ['Please enter the number of guests.'])
-
-
-    
-
+        self.assertEqual(form.errors['people'],
+                         ['Please enter the number of guests.'])
 
     def test_message_fields_not_required(self):
         """

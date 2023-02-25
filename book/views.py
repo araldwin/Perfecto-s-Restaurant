@@ -11,7 +11,6 @@ from .forms import RegisterUserForm
 from django.contrib.auth.models import Group
 
 
-
 # Import Pagination
 from django.core.paginator import Paginator
 
@@ -52,7 +51,6 @@ def add_reservation(request):
     return render(request, 'add_reservation.html', {'form': form, 'submitted': submitted})
 
 
-
 def update_reservation(request, reservation_id):
     book = Book.objects.get(pk=reservation_id)
     form = BookForm(request.POST or None, instance=book)
@@ -60,7 +58,8 @@ def update_reservation(request, reservation_id):
         form.save()
         return redirect('list-reservation')
 
-    return render(request, 'update_reservation.html', {'book': book, 'form': form})
+    return render(request, 'update_reservation.html',
+                  {'book': book, 'form': form})
 
 
 def show_reservation(request, reservation_id):
@@ -86,41 +85,42 @@ def list_reservation(request):
     return render(request, 'reservation_list.html', {'reservation_list': reservation_list, 'page_obj':  page_obj})
 
 
-
 def login_user(request):
-	if request.method == "POST":
-		username = request.POST.get('username')
-		password = request.POST.get('password')
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-		user = authenticate(request, username=username, password=password)
-
-		if user is not None:
-			login(request, user)
-			return HttpResponse("Success")
-		else:
-			return HttpResponse("There Was An Error Logging In, Try Again...")
-	else:
-		return render(request, 'registration/login.html', {})
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return HttpResponse("Success")
+        else:
+            return HttpResponse("There Was An Error Logging In, Try Again...")
+    else:
+        return render(request, 'registration/login.html', {})
 
 
 def logout_user(request):
-	logout(request)
-	messages.success(request, ("You Were Logged Out!"))
-	return redirect('home')
+
+    logout(request)
+    messages.success(request, ("You Were Logged Out!"))
+    return redirect('home')
 
 
 def register_user(request):
-	form = RegisterUserForm(request.POST)
-	if request.method == "POST":
-		form = RegisterUserForm(request.POST)
-		if form.is_valid():
-			user = form.save()
-			username = form.cleaned_data.get('username')
-			login(request, user)
-			message = 'Registration Successful!'
-			return HttpResponse(message, status=200)
-		else:
-			return HttpResponse(form.as_p(), status=400)
-	return render(request, 'registration/register_modal.html', {'form':  form})
 
+    form = RegisterUserForm(request.POST)
 
+    if request.method == "POST":
+        form = RegisterUserForm(request.POST)
+
+    if form.is_valid():
+        user = form.save()
+        username = form.cleaned_data.get('username')
+        login(request, user)
+        message = 'Registration Successful!'
+        return HttpResponse(message, status=200)
+    else:
+        return HttpResponse(form.as_p(), status=400)
+
+    return render(request, 'registration/register_modal.html', {'form':  form})
