@@ -1,9 +1,11 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Book
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import Book
+from datetime import date
 
 
 # Create a Booking form
@@ -20,10 +22,9 @@ class BookForm(ModelForm):
     book_time, people, and message. Each of these fields is defined as a forms
     class with various attributes such as widgets, attrs, and placeholders.
 
-    The clean_people method is used to perform custom validation on the
-    people field, which is intended to capture the number of people for
-    the reservation. The method checks whether the value entered is an
-    integer greater than zero, raising a ValidationError if not.
+    Number of People input field will now be an integer field with a maximum
+    value of 20 and a maximum of 2 digits. The field will also include a
+    validator to ensure that the input does not exceed 20.
 
     The Meta class is used to specify the model used for the form and the
     fields that should be included in the form. The labels and widgets
@@ -35,24 +36,26 @@ class BookForm(ModelForm):
     validation and visual attributes for each form field.
     """
 
-    def clean_people(self):
-
-        data = self.cleaned_data['people']
-        try:
-            value = int(data)
-            if value <= 0:
-                raise ValidationError("Please enter the number of guests.")
-        except ValueError:
-            raise ValidationError("Invalid value for number of people.")
-        return value
-
-    book_date = forms.DateField(widget=forms.DateInput(
-        attrs={'type': 'date', 'class': 'form-control', 'placeholder': 'Date'})
+    book_date = forms.DateField(
+        widget=forms.DateInput(
+            attrs={'type': 'date', 'class': 'form-control',
+                   'placeholder': 'Date'}
+        ),
+        validators=[MinValueValidator(limit_value=date.today())]
     )
-    book_time = forms.TimeField(widget=forms.TimeInput(
-        attrs={'type': 'time', 'step': 60, 'class': 'form-control',
-                                                    'placeholder': 'Time'}))
-
+    book_time = forms.TimeField(
+        widget=forms.TimeInput(
+            attrs={'type': 'time', 'step': 60, 'class': 'form-control',
+                   'placeholder': 'Time'}
+        )
+    )
+    people = forms.IntegerField(widget=forms.NumberInput(
+        attrs={'class': 'form-control', 'placeholder': 'Number of people',
+               'max': 20}),
+        validators=[MaxValueValidator(20)],
+        max_value=20,
+        min_value=1,)
+  
     class Meta:
         model = Book
         fields = ('name', 'phone', 'book_date', 'email',
@@ -75,8 +78,6 @@ class BookForm(ModelForm):
                                      'placeholder': 'Your Phone'}),
             'email': forms.TextInput(attrs={'class': 'form-control',
                                      'placeholder': 'Your Email'}),
-            'people': forms.TextInput(attrs={'class': 'form-control',
-                                      'placeholder': 'Number of people'}),
             'message': forms.Textarea(attrs={'class': 'form-control',
                                       'placeholder': 'Your Message'}),
         }
