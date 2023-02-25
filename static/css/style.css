@@ -5,7 +5,6 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  background: #0c0b09;
   color: #fff;
   margin: 0px;
   padding: 0px;
@@ -61,7 +60,7 @@ h6 {
   color: rgba(255, 255, 255, 0.55);
   position: fixed;
   top: 0;
-  z-index: 1000;
+  z-index: 2000;
   background-color: #0c0b09;
   width: 100%;
 }
@@ -134,7 +133,7 @@ section > .hero-content {
 }
 
 .hero-content > h1 > span {
-  font-size: 75px;
+  font-size: 65px;
 }
 
 .hero-carousel > .carousel-inner > .carousel-item > img {
@@ -259,5 +258,102 @@ form ul li {
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+.parallax-container {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+
+  row-gap: 4rem;
+  text-align: center;
+}
+
+.buffer {
+  width: 100%;
+  min-height: 25vh;
+  background-color: #0c0b09;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  scroll-margin-top: 30px;
+}
+
+.parallax-container2 {
+  padding: 50px;
+  height: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-image: url(../images/pexels-pranav-jain-1707957.jpg);
+}
+
+.section-content {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.section-content .card.card-yellow {
+  height: auto;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border: none;
+  padding: 50px;
+  text-align: justify;
+}
+
+.parallax-container3 {
+  padding: 50px;
+  height: 100vh;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-image: url(../images/pexels-karolina-grabowska-4033636.jpg);
+}
+
+.menu-container .menu-item {
+  margin-bottom: 20px;
+}
+
+.menu-container .menu-item .menu-body {
+  color: #000;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.menu-container .menu-item .menu-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+
+.menu-container .menu-item .menu-content .title {
+  font-weight: bold;
+}
+.menu-container .menu-item .menu-content .description {
+  font-size: 14px;
+}
+
+.img-fluid {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+@media only screen and (max-width: 991px) {
+  .buffer {
+    min-height: 10vh;
+    scroll-margin-top: 130px;
+  }
+
+  .section-content .card.card-yellow {
+    width: 100%;
+    padding: 10px;
   }
 }
