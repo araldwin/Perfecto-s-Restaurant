@@ -139,36 +139,18 @@ section > .hero-content {
   object-fit: cover;
 }
 
-/* ------------------------------------------------------------------- Make a reservation */
+/* reservation */
 
-#reservation {
-  width: 100%;
-  height: 100vh;
-  background: url("https://res.cloudinary.com/dhign8ar8/image/upload/v1676974179/restaurant-reservation-apps_v2faxg.png")
-    top center;
-  background-size: cover;
-  position: relative;
-  padding: 0;
+.reservation-content {
+  margin: auto;
+  background-color: #fea116;
+  margin-top: 150px;
+  padding: 20px;
+  border-radius: 5px;
+  animation: fadeInUp 1.5s 1s;
 }
 
-#reservation:before {
-  content: "";
-  background: #0c0b09;
-  opacity: 0.7;
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-.book-a-table {
-  width: 100%;
-}
-
-.book-a-table .form-group {
-  padding-bottom: 8px;
-}
+/* end of reservation */
 
 .display-flex {
   display: flex;
