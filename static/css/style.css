@@ -11,6 +11,10 @@ body {
   padding: 0px;
 }
 
+label {
+  color: #0c0b09;
+}
+
 a {
   color: #fea116;
   text-decoration: none;
@@ -159,12 +163,6 @@ section > .hero-content {
 .display-flex.flex-end {
   justify-content: flex-end;
   gap: 10px;
-}
-
-/* ------------------------------------------------------------------- Login page */
-.card-header h2,
-label {
-  color: #0c0b09;
 }
 
 /* common */
