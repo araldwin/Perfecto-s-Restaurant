@@ -387,3 +387,39 @@ form ul li {
   color: #fea116;
   
 }
+
+/* Food menu */
+
+.card-header{
+  background-color: #fea116;
+
+}
+
+.menu-card-bg{
+  height: 100%;
+  width: 100%;
+  background-image: url(https://res.cloudinary.com/dhign8ar8/image/upload/v1677432150/static/images/menu-bg.jpg);
+  background-size: cover;
+  padding-bottom: 150px;
+}
+
+.menu-card{
+  width: fit-content;
+  color: #0c0b09;
+  box-shadow: inset 5em 1em #0c0b09;
+}
+
+.card-body{
+  color: #0c0b09;
+}
+
+.card-body .img-fluid{
+  border-radius: 5%;
+}
+
+/* menu list */
+
+.menu-list {
+  background-image: url(https://res.cloudinary.com/dhign8ar8/image/upload/v1677436836/static/images/list-bg.jpg);
+  background-size: cover;
+}
