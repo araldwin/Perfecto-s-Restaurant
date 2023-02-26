@@ -114,13 +114,12 @@ def register_user(request):
     if request.method == "POST":
         form = RegisterUserForm(request.POST)
 
-    if form.is_valid():
-        user = form.save()
-        username = form.cleaned_data.get('username')
-        login(request, user)
-        message = 'Registration Successful!'
-        return HttpResponse(message, status=200)
-    else:
-        return HttpResponse(form.as_p(), status=400)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            message = 'Registration Successful!'
+            return HttpResponse(message, status=200)
+        else:
+            return HttpResponse(form.as_p(), status=400)
 
     return render(request, 'registration/register_modal.html', {'form':  form})

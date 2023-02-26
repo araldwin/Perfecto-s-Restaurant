@@ -357,3 +357,33 @@ form ul li {
     padding: 10px;
   }
 }
+
+
+
+.footer {
+  background: #0c0b09;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px;
+  text-align: center;
+
+}
+
+.footer a{
+  margin-left: 8px;
+}
+
+.footer .social-links{
+  font-size: 28px;
+  padding: 5px 0;
+}
+
+.footer .social-links a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+ 
+.footer .copyright span{
+  color: #fea116;
+  
+}
