@@ -309,6 +309,7 @@ form ul li {
 }
 
 .parallax-container3 {
+  overflow: auto;
   padding: 50px;
   height: 100vh;
   flex-direction: row;
@@ -391,6 +392,7 @@ form ul li {
 /* Food menu */
 
 .card-header{
+  color: #0c0b09;
   text-shadow: 2px 2px 5px #fff;
   background-image: radial-gradient(#ffe7c4, #fdac32, #ff9900);
 
@@ -421,7 +423,7 @@ form ul li {
 }
 
 .card-body  h4 {
-  text-emphasis: sesame rgb(255, 0, 0);
+  text-emphasis: sesame #ff0000;
   padding-top: 10px;
 }
 
@@ -430,6 +432,10 @@ form ul li {
   height: 90%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   
+}
+
+.menu-card .price {
+  font-weight: bold;
 }
 
 @media only screen and (min-width: 768px){
@@ -441,9 +447,26 @@ form ul li {
 
 
 
-/* menu list */
+/* food list */
 
-.menu-list {
+.food-list-bg {
   background-image: url(https://res.cloudinary.com/dhign8ar8/image/upload/v1677436836/static/images/list-bg.jpg);
   background-size: cover;
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  height: 100%;
+  width: 100%;
+}
+
+.table-body {
+  display: contents;
+}
+.table a{
+  font-size: 25px;
+}
+.food-list-bg .card-text {
+  font-size: 18px;
+  font-weight: bolder;
+  text-emphasis: triangle #001aff;
 }

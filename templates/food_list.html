@@ -1,14 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<br><br><br><br><br>
-<h1>Menu List</h1>
 
-{% for food in food_list %}
-    <h2> <a href="{% url 'food:food_detail' food.slug %}">{{food}}</a></h2>
+<div class="container-fluid food-list-bg">
+        <div class="container">
+            <div class="card text-center">
+                <div class="card-header">
+                 <h1> Our Special Menu</h1>
+                </div>
+                <div class="card-body table-body">
+                  <h5 class="card-title">
+                    <table class="table table-striped table-hover">
+                        {% for food in food_list %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'food:food_detail' food.slug %}">{{food}}</a>
+                            </td>
+                        </tr>
+                   
+                    {% endfor %}
+                      </table>
+                  </h5>
+                  <p class="card-text">Select to view the Food details</p>
+                </div>
+              </div>
+            
+        </div>   
+</div>
 
-    
-
-{% endfor %}
 
 {% endblock %}
