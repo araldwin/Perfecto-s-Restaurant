@@ -391,31 +391,55 @@ form ul li {
 /* Food menu */
 
 .card-header{
-  background-color: #fea116;
+  text-shadow: 2px 2px 5px #fff;
+  background-image: radial-gradient(#ffe7c4, #fdac32, #ff9900);
 
 }
 
 .menu-card-bg{
+  position: fixed; 
+  top: 0; 
+  left: 0; 
   height: 100%;
   width: 100%;
   background-image: url(https://res.cloudinary.com/dhign8ar8/image/upload/v1677432150/static/images/menu-bg.jpg);
   background-size: cover;
   padding-bottom: 150px;
+  overflow: overlay;
+
 }
 
 .menu-card{
   width: fit-content;
   color: #0c0b09;
-  box-shadow: inset 5em 1em #0c0b09;
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card-body{
+  height: 100%;
   color: #0c0b09;
 }
 
-.card-body .img-fluid{
-  border-radius: 5%;
+.card-body  h4 {
+  text-emphasis: sesame rgb(255, 0, 0);
+  padding-top: 10px;
 }
+
+.card-body .img-fluid{
+  width: 90%;
+  height: 90%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+}
+
+@media only screen and (min-width: 768px){
+  .card-body {
+    height: 80%;
+    width: 600px;
+}
+}
+
+
 
 /* menu list */
 
