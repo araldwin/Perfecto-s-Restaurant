@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from .forms import RegisterUserForm
 from django.contrib.auth.models import Group
+from food.models import Food
 
 
 # Import Pagination
@@ -16,7 +17,9 @@ from django.core.paginator import Paginator
 
 
 def home(request):
-    return render(request, 'home.html', {})
+    food_list = Food.objects.all()
+    context = {'food_list': food_list}
+    return render(request, 'home.html', context)
 
 
 def delete_reservation(request, reservation_id):

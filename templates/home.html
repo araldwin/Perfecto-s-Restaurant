@@ -5,7 +5,7 @@
   <div class="hero-content text-center">
     <h1>Welcome to <br><span>Perfecto's</span></h1>
     <div class="btns">
-      <a href="{% url 'food:food_list' %}" role="button" class="btn-reservation white">View our Special Menu</a>
+      <a href="/#our-menu" role="button" class="btn-reservation white">Our Menu</a>
 
     </div>
   </div>
@@ -79,41 +79,42 @@
 <section class="parallax-container parallax-container3">
   <div class="menu-container row">
 
+    {% for food in food_list %}
     <div class="menu-item col-lg-3 col-md-4 col-sm-12">
       <div class="menu-body">
-        <img class="img-fluid" src="../static/images/pexels-alina-matveycheva-15529686.jpg" alt="">
+        <img class="img-fluid" src="{{ food.featured_image.url }}" alt="{{ food.name }}">
         <div class="menu-content">
-          <span class="title">Tapsilog</span>
+          <span class="title">{{ food.name }}</span>
           <ul class="list-unstyled list-inline mb-0">
-            <li class="list-inline-item me-0">
-              <i class="fas fa-star text-warning fa-xs"> </i>
-            </li>
+            {% for i in 1|make_list|slice:":food.rating" %}
             <li class="list-inline-item me-0">
               <i class="fas fa-star text-warning fa-xs"></i>
-            </li>
-            <li class="list-inline-item me-0">
               <i class="fas fa-star text-warning fa-xs"></i>
+              </li>
+              <li class="list-inline-item me-0">
+                <i class="fas fa-star text-warning fa-xs"></i>
+              </li>
+              <li class="list-inline-item me-0">
+                <i class="fas fa-star text-warning fa-xs"></i>
+              </li>
+              <li class="list-inline-item">
+                <i class="fas fa-star-half-alt text-warning fa-xs"></i>
+              </li>
             </li>
-            <li class="list-inline-item me-0">
-              <i class="fas fa-star text-warning fa-xs"></i>
-            </li>
+            {% endfor %}
+            {% if food.rating %}
             <li class="list-inline-item">
-              <i class="fas fa-star-half-alt text-warning fa-xs"></i>
+              <p class="text-muted">{{ food.rating }} ({{ food.num_ratings }})</p>
             </li>
-            <li class="list-inline-item">
-              <p class="text-muted">4.5 (2,000)</p>
-            </li>
+            {% endif %}
           </ul>
-
-          <span class="description">Our Tapsilog is a classic Filipino breakfast dish featuring savory marinated beef,
-            garlic fried rice, and a sunny-side-up egg. Delicious and filling - try it today!</span>
+          <span class="description">{{ food.description }}</span>
           <hr>
-          <span class="price">
-            $ 30
-          </span>
+          <span class="price">$ {{ food.price }}</span>
         </div>
       </div>
     </div>
+    {% endfor %}
 
     <div class="menu-item col-lg-3 col-md-4 col-sm-12">
       <div class="menu-body">
@@ -191,19 +192,18 @@
 </section>
 
 <footer class="footer">
-    
-    <div class="container footer-container">
-        <div class="social-links">
-            <h4>Follow us:</h4>
-            <a href="#" class="twitter"><i class="fa-brands fa-square-twitter"></i></a>
-            <a href="#" class="facebook"><i class="fa-brands fa-square-facebook"></i></i></a>
-            <a href="#" class="instagram"><i class="fa-brands fa-square-instagram"></i></i></a>
-            <a href="#" class="tiktok"><i class="fa-brands fa-tiktok"></i></i></a>
-          </div>
-        <div class="copyright">
-            &copy; Copyright <strong><span>2023 Perfecto's Restaurant</span></strong>. All Rights Reserved
-        </div>
+
+  <div class="container footer-container">
+    <div class="social-links">
+      <h4>Follow us:</h4>
+      <a href="#" class="twitter"><i class="fa-brands fa-square-twitter"></i></a>
+      <a href="#" class="facebook"><i class="fa-brands fa-square-facebook"></i></i></a>
+      <a href="#" class="instagram"><i class="fa-brands fa-square-instagram"></i></i></a>
+      <a href="#" class="tiktok"><i class="fa-brands fa-tiktok"></i></i></a>
     </div>
+    <div class="copyright">
+      &copy; Copyright <strong><span>2023 Perfecto's Restaurant</span></strong>. All Rights Reserved
+    </div>
+  </div>
 </footer>
 {% endblock %}
-
