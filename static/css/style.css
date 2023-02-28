@@ -153,6 +153,16 @@ section > .hero-content {
   animation: fadeInUp 1.5s 1s;
 }
 
+
+
+.section-title h2::after{
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  background: #fff;
+  margin: 4px 10px;
+}
 /* end of reservation */
 
 .display-flex {
@@ -392,7 +402,23 @@ form ul li {
   
 }
 
-/* Food menu */
+
+
+
+
+
+/* user reservation list */
+
+.res-list-bg {
+  background-image: url(https://res.cloudinary.com/dhign8ar8/image/upload/v1677436836/static/images/list-bg.jpg);
+  background-size: cover;
+  position:absolute;
+  top: 0; 
+  left: 0; 
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
 
 .card-header{
   color: #0c0b09;
@@ -401,68 +427,20 @@ form ul li {
 
 }
 
-.menu-card-bg{
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  height: 100%;
-  width: 100%;
-  background-image: url(https://res.cloudinary.com/dhign8ar8/image/upload/v1677432150/static/images/menu-bg.jpg);
-  background-size: cover;
-  padding-bottom: 150px;
-  overflow: overlay;
-
-}
-
-.menu-card{
-  width: fit-content;
+.card-body{
+  border-radius: 5px;
   color: #0c0b09;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
   box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.card-body{
-  height: 100%;
-  color: #0c0b09;
+.card-body ul{
+  list-style-type: none;
 }
 
-.card-body  h4 {
-  text-emphasis: sesame #ff0000;
-  padding-top: 10px;
-}
-
-.menu-card .price {
-  font-weight: bold;
-}
-
-@media only screen and (min-width: 768px){
-  .card-body {
-    height: 80%;
-    width: 600px;
-}
-}
-
-
-
-/* food list */
-
-.food-list-bg {
-  background-image: url(https://res.cloudinary.com/dhign8ar8/image/upload/v1677436836/static/images/list-bg.jpg);
-  background-size: cover;
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  height: 100%;
-  width: 100%;
-}
-
-.table-body {
-  display: contents;
-}
-.table a{
-  font-size: 25px;
-}
-.food-list-bg .card-text {
-  font-size: 18px;
-  font-weight: bolder;
-  text-emphasis: triangle #001aff;
+.page-link{
+  color: #fea116;
 }

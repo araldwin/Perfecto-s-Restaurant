@@ -2,30 +2,29 @@
 
 {% block content %}
 
-<div class="container-fluid food-list-bg">
-        <div class="container">
-            <div class="card text-center">
-                <div class="card-header">
-                 <h1> Our Special Menu</h1>
-                </div>
-                <div class="card-body table-body">
-                  <h5 class="card-title">
-                    <table class="table table-striped table-hover">
-                        {% for food in food_list %}
-                        <tr>
-                            <td>
-                                <a href="{% url 'food:food_detail' food.slug %}">{{food}}</a>
-                            </td>
-                        </tr>
-                   
-                    {% endfor %}
-                      </table>
-                  </h5>
-                  <p class="card-text">Select to view the Food details</p>
-                </div>
-              </div>
-            
-        </div>   
+<div class="menu-container row">
+  <div class="card">
+    <div class="card-header">
+      Reservation details:
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Name: {{ book.name }}</h5>
+      <p class="card-text"><ul>
+
+        <li><strong>Date: </strong>{{ book.book_date }}</li>
+        <li><strong>Time: </strong>{{ book.book_time }}</li>
+        <li><strong>Number of Guests: </strong>{{ book.people }}</li>
+        <li><strong>Contact Number: </strong>{{ book.phone }}</li>
+        <li><strong>Message: </strong>{{ book.message }}</li>
+    </ul></p>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="card-footer text-muted">
+      <a href="{% url 'update-reservation' book.id %}" class="btn btn-outline-success btn-sm">Update</a>
+      <a href="{% url 'delete-reservation' book.id %}" class="btn btn-outline-danger btn-sm">Cancel Reservation</a>
+    </div>
+    {% endif %} 
+  </div>
 </div>
 
 

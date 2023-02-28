@@ -78,14 +78,18 @@ def list_reservation(request):
      The reservation_list will be filtered by the User corresponding to the currently logged-in user, as specified by request.user.
      The filter expression uses the __ syntax to follow the foreign key relationship to the MyRestaurantUser model, and then to its user field.
     '''
-    reservation_list = Book.objects.filter(user=request.user)
+    reservation_list = Book.objects.filter(user=request.user).order_by('book_date')
 
     # Pagination
-    # Show 5 reservation per page.
-    paginator = Paginator(reservation_list, 5)
+    # Show 8 reservation per page.
+    paginator = Paginator(reservation_list, 8)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'reservation_list.html', {'reservation_list': reservation_list, 'page_obj':  page_obj})
+    nums = "a" * page_obj.paginator.num_pages
+    return render(request, 'reservation_list.html',
+                  {'reservation_list': reservation_list,
+                   'page_obj':  page_obj,
+                   'nums': nums})
 
 
 def login_user(request):
