@@ -28,12 +28,13 @@
             </ul>
           </p>
         </div>
-        {% if user.is_authenticated %}
-        <div class="card-footer text-muted">
+     
+        <div class="card-footer text-muted res-footer mt-3 mb-3">
+          {% include 'delete_reservation_modal.html' %}
           <a href="{% url 'update-reservation' book.id %}" class="btn btn-outline-success btn-sm">Update</a>
-          <a href="{% url 'delete-reservation' book.id %}" class="btn btn-outline-danger btn-sm" >Cancel Reservation</a>
+          <a href="#" role="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteReservationModal">Cancel Reservation</a>
         </div>
-        {% endif %}
+       
       </div>
 
       {% endfor %}
@@ -62,5 +63,6 @@
   </div>
 </div>
 </div>
+
 
 {% endblock %}

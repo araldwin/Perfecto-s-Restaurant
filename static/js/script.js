@@ -1,3 +1,12 @@
+const spinnerWrapperEl = document.querySelector('.spinner-wrapper');
+window.addEventListener('load', () => {
+  spinnerWrapperEl.style.opacity = '0';
+
+  setTimeout(() => {
+    spinnerWrapperEl.style.display = 'none';
+  }, 200);
+});
+
 $(function () {
   validate("username", "username-check");
   validate("password", "pass-check");
@@ -75,3 +84,19 @@ function openRegisterModal() {
     },
   });
 }
+
+
+$(document).ready(function () {
+  $('#deleteReservationModal').on('hidden.bs.modal', function () {
+    location.reload();
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const cancelReservationBtn = document.getElementById("cancelReservationBtn");
+  if (cancelReservationBtn) {
+    cancelReservationBtn.addEventListener("click", function () {
+      alert("Your reservation is successfully canceled.");
+    });
+  }
+});

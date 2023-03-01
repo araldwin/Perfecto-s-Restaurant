@@ -2,15 +2,20 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-    <h1>Update My Reservation</h1>
-    <br>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <br/>
-        <input type="submit" value="Update" class="btn btn-primary">
-{% else %}
-    <h1>Sorry! You must be logged first to view this page...</h1>
-    <a href="{% url 'login' %}">Login here</a>
+<div class="container-fluid res-list-bg">
+    <div class="container">
+        <h1>Update My Reservation</h1>
+        <br>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br/>
+            <input type="submit" value="Update" class="btn btn-primary">
+             {% else %}
+        <h1>Sorry! You must be logged first to view this page...</h1>
+        <a href="{% url 'login' %}">Login here</a>
+    </div>
+</div>
 {% endif %}
 {% endblock %}
+
