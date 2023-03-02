@@ -5,8 +5,8 @@
 <div class="container-fluid res-list-bg">
     <div class="container update-container">
         {% if user.is_authenticated %}
-        <div class="section-title p-3">
-          <h2>Update My Reservation</h2>
+        <div class="card-header text-center">
+          <h1>Update My Reservation</h1>
           {% if form.errors %}
           <div class="alert alert-danger alert-dismissible fade show" role="alert">
             Sorry, double booking is not allowed!

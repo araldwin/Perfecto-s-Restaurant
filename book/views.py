@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Book
 from .forms import BookForm
@@ -6,9 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
 from .forms import RegisterUserForm
-from django.contrib.auth.models import Group
 from food.models import Food
 
 
@@ -40,7 +38,7 @@ def add_reservation(request):
             )
             if existing_reservations.exists():
                 # If a reservation already exists for the user and time slot, display an error message
-                form.add_error(None, 'This time slot is already reserved..')
+                form.add_error('book_date', 'You have already reserved a table for this date.')
             else:
                 # If no reservation exists, create a new one for the user
                 book = form.save(commit=False)
@@ -51,8 +49,7 @@ def add_reservation(request):
         form = BookForm()
         if 'submitted' in request.GET:
             submitted = True
-    return render(request, 'add_reservation.html', {'form': form,
-                  'submitted': submitted})
+    return render(request, 'add_reservation.html', {'form': form, 'submitted': submitted})
 
 
 def update_reservation(request, reservation_id):

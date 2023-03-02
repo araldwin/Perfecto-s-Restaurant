@@ -1,11 +1,13 @@
 from django import forms
 from django.forms import ModelForm
-from django.core.validators import MaxValueValidator, MinValueValidator
+from django.core.validators import MaxValueValidator
 from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Book
 from datetime import date
+import datetime
+
 
 
 # Create a Booking form
@@ -41,14 +43,41 @@ class BookForm(ModelForm):
             attrs={'type': 'date', 'class': 'form-control',
                    'placeholder': 'Date'}
         ),
-        validators=[MinValueValidator(limit_value=date.today())]
     )
+
+    def clean_book_date(self):
+        book_date = self.cleaned_data.get('book_date')
+        if book_date and book_date < date.today():
+            raise ValidationError('Book date cannot be in the past')
+
+        # Check if a reservation already exists for the given date
+        reservations = Book.objects.filter(book_date=book_date)
+        if self.instance:
+            # Exclude the current reservation if updating an existing reservation
+            reservations = reservations.exclude(id=self.instance.id)
+        if reservations.exists():
+            raise ValidationError('You have already reserved a table for this date.')
+
+        return book_date
+
     book_time = forms.TimeField(
         widget=forms.TimeInput(
             attrs={'type': 'time', 'step': 60, 'class': 'form-control',
                    'placeholder': 'Time'}
         )
     )
+
+    def clean_book_time(self):
+        book_time = self.cleaned_data.get('book_time')
+        if book_time:
+            open_time = datetime.time(10, 0)  # Replace with actual opening time
+            close_time = datetime.time(22, 0)  # Replace with actual closing time
+            if book_time < open_time:
+                raise ValidationError(f'Booking time must be after {open_time.strftime("%I:%M %p")}')
+            elif book_time > close_time:
+                raise ValidationError(f'Booking time must be before {close_time.strftime("%I:%M %p")}')
+        return book_time
+
     people = forms.IntegerField(widget=forms.NumberInput(
         attrs={'class': 'form-control', 'placeholder': 'Number of people',
                'max': 20}),
@@ -73,13 +102,15 @@ class BookForm(ModelForm):
         }
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control',
-                                    'placeholder': 'Your full name'}),
+                                    'placeholder': 'Your Full name'}),
             'phone': forms.TextInput(attrs={'class': 'form-control',
                                      'placeholder': 'Your Phone'}),
             'email': forms.TextInput(attrs={'class': 'form-control',
                                      'placeholder': 'Your Email'}),
-            'message': forms.Textarea(attrs={'class': 'form-control',
-                                      'placeholder': 'Your Message'}),
+            'message': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'Please add your message and request here...'
+            }),
         }
 
 

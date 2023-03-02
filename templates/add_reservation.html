@@ -9,9 +9,15 @@
     {% if user.is_authenticated %}
     <div class="section-title p-3">
       <h2>Reservation</h2>
-      {% if form.errors %}
+        {% if form.errors.book_date %}
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        Sorry, double booking is not allowed!
+        {{ form.errors.book_date }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endif %}
+        {% if form.errors.book_time %}
+      <div class="alert-danger alert-dismissible fade show" role="alert">
+        {{ form.errors.book_time }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
       {% endif %}
@@ -58,6 +64,8 @@
       <br>
       <div class="text-center"><input type="submit" value="Reserve Table"></div>
       <br>
+
+      
     </form>
     {% endif %}
 
