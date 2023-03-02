@@ -11,6 +11,12 @@
 
 
 
+    {% if page_obj|length == 0 %}
+    <div class="position-absolute top-50 start-50 translate-middle">
+    <p class="res-list-empty text-center">Reservation list empty</p>
+    </div>
+    {% endif %}
+
     <div class="row gy-5">
       {% for book in page_obj %}
       <div class="card col-lg-3 col-md-4 col-sm-12">
@@ -23,25 +29,27 @@
               <li><strong>Date: </strong>{{ book.book_date }}</li>
               <li><strong>Time: </strong>{{ book.book_time }}</li>
               <li><strong>Number of Guests: </strong>{{ book.people }}</li>
+              <li><strong>Email: </strong>{{ book.email }}</li>
               <li><strong>Contact Number: </strong>{{ book.phone }}</li>
               <li><strong>Message: </strong>{{ book.message }}</li>
             </ul>
           </p>
         </div>
-     
+
         <div class="card-footer text-muted res-footer mt-3 mb-3">
           {% include 'delete_reservation_modal.html' %}
           <a href="{% url 'update-reservation' book.id %}" class="btn btn-outline-success btn-sm">Update</a>
-          <a href="#" role="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteReservationModal">Cancel Reservation</a>
+          <a href="#" role="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal"
+            data-bs-target="#deleteReservationModal">Cancel Reservation</a>
         </div>
-       
+
       </div>
 
       {% endfor %}
 
 
       <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
+        <ul id="pagination" class="pagination justify-content-center">
           {% if page_obj.has_previous %}
           <li class="page-item"><a class="page-link" href="?page=1">&laquo; first</a></li>
           <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a></li>
@@ -54,7 +62,8 @@
 
           {% if page_obj.has_next %}
           <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a></li>
-          <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a></li>
+          <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+          </li>
           {% endif %}
         </ul>
       </nav>

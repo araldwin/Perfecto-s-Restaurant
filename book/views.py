@@ -51,7 +51,8 @@ def add_reservation(request):
         form = BookForm()
         if 'submitted' in request.GET:
             submitted = True
-    return render(request, 'add_reservation.html', {'form': form, 'submitted': submitted})
+    return render(request, 'add_reservation.html', {'form': form,
+                  'submitted': submitted})
 
 
 def update_reservation(request, reservation_id):
@@ -78,7 +79,11 @@ def list_reservation(request):
      The reservation_list will be filtered by the User corresponding to the currently logged-in user, as specified by request.user.
      The filter expression uses the __ syntax to follow the foreign key relationship to the MyRestaurantUser model, and then to its user field.
     '''
-    reservation_list = Book.objects.filter(user=request.user).order_by('book_date')
+    reservation_list = (
+        Book.objects
+        .filter(user=request.user)
+        .order_by('book_date')
+    )
 
     # Pagination
     # Show 8 reservation per page.

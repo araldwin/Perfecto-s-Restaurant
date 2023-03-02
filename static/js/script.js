@@ -100,3 +100,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+var pagination = document.getElementById('pagination');
+if (document.querySelectorAll('.card').length === 0) {
+  document.querySelector('.pagination').style.display = 'none';
+}

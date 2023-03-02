@@ -162,18 +162,15 @@ section > .hero-content {
   object-fit: cover;
 }
 
-/* reservation */
+/* add reservation */
 
 .reservation-content {
   margin: auto;
   background-color: #fea116;
-  margin-top: 150px;
   padding: 20px;
   border-radius: 5px;
   animation: fadeInUp 1.5s 1s;
 }
-
-
 
 .section-title h2::after{
   content: "";
@@ -182,6 +179,11 @@ section > .hero-content {
   display: inline-block;
   background: #fff;
   margin: 4px 10px;
+}
+
+@media only screen and (mid-width: 767px) {
+    .col-md-4 {
+    width: 80% !important}
 }
 /* end of reservation */
 
@@ -469,3 +471,34 @@ form ul li {
   color: #fea116;
 }
 
+.res-list-empty{
+  font-size: 25px;
+  color: #0c0b09;
+  text-shadow: 2px 2px 8px #fff;
+}
+
+
+/* smallest mobile screen */
+@media only screen and (max-width: 326px) {
+  .res-list-empty {
+    font-size: 15px;
+  }
+
+  
+/* Update Container */
+
+.update-container{
+  color: #0c0b09;
+  text-shadow: 2px 2px 5px #fff;
+
+}
+
+.update-container .section-title h2::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  background: #0c0b09;
+  margin: 4px 10px;
+  
+}

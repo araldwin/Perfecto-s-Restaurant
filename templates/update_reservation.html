@@ -3,19 +3,70 @@
 {% block content %}
 {% if user.is_authenticated %}
 <div class="container-fluid res-list-bg">
-    <div class="container">
-        <h1>Update My Reservation</h1>
-        <br>
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <br/>
-            <input type="submit" value="Update" class="btn btn-primary">
-             {% else %}
-        <h1>Sorry! You must be logged first to view this page...</h1>
-        <a href="{% url 'login' %}">Login here</a>
+    <div class="container update-container">
+        {% if user.is_authenticated %}
+        <div class="section-title p-3">
+          <h2>Update My Reservation</h2>
+          {% if form.errors %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Sorry, double booking is not allowed!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% endif %}
+        </div>
+        {% if submitted %}
+        <div class="alert alert-success" role="alert">
+          Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!
+        </div>
+      
+        {% else %}
+        <form action="" method="post" role="form">
+          {% csrf_token %}
+      
+          <div class="row">
+            <div class="col-lg-4 col-md-6 form-group">
+              Name:
+              {{ form.name }}
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+              Phone:
+              {{ form.phone }}
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+              Email:
+              {{ form.email }}
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+              Date:
+              {{ form.book_date }}
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+              Time:
+              {{ form.book_time }}
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+              No. of Guest
+              {{ form.people }}
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            Note:
+            {{ form.message }}
+          </div>
+          <br>
+          <div class="text-center"><input type="submit" value="Update" class="btn-reservation"></div>
+          <br>
+        </form>
+        {% endif %}
+      
+        {% else %}
+        <br><br><br><br><br><br>
+        <h1>You must be logged in to book a reservation.</h1>
+        <a href="{% url 'login' %}">Login Here</a>
+        {% endif %}
     </div>
 </div>
+
 {% endif %}
 {% endblock %}
 
