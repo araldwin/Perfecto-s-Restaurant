@@ -1,27 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-
-
-<div class="container-fluid res-list-bg">
-  <div class="reservation-content col-lg-4">
+<div class="container-fluid rest-bg">
+  <div class="container update-container">
     {% if user.is_authenticated %}
-    <div class="section-title p-3">
-      <h2>Reservation</h2>
-        {% if form.errors.book_date %}
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        {{ form.errors.book_date }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      {% endif %}
-        {% if form.errors.book_time %}
-      <div class="alert-danger alert-dismissible fade show" role="alert">
-        {{ form.errors.book_time }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      {% endif %}
+    <div class="card-header text-center">
+      <h1>Make a Reservation</h1>
     </div>
+
+    {% if form.errors.book_date %}
+        <div class="alert alert-danger alert-dismissible fade show box-shahow" role="alert">
+          {{ form.errors.book_date }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+
+        {% if form.errors.book_time %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          {{ form.errors.book_time }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endif %}
+
     {% if submitted %}
     <div class="alert alert-success" role="alert">
       Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!
@@ -32,37 +32,37 @@
       {% csrf_token %}
 
       <div class="row">
-        <div class="col-lg-4 col-md-6 form-group">
+        <div class="col-lg-4 col-md-6 form-group box-shahow">
           Name:
           {{ form.name }}
         </div>
-        <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+        <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0 box-shahow">
           Phone:
           {{ form.phone }}
         </div>
-        <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+        <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0 box-shahow">
           Email:
           {{ form.email }}
         </div>
-        <div class="col-lg-4 col-md-6 form-group mt-3">
+        <div class="col-lg-4 col-md-6 form-group mt-3 box-shahow">
           Date:
           {{ form.book_date }}
         </div>
-        <div class="col-lg-4 col-md-6 form-group mt-3">
+        <div class="col-lg-4 col-md-6 form-group mt-3 box-shahow">
           Time:
           {{ form.book_time }}
         </div>
-        <div class="col-lg-4 col-md-6 form-group mt-3">
+        <div class="col-lg-4 col-md-6 form-group mt-3 box-shahow">
           No. of Guest
           {{ form.people }}
         </div>
       </div>
-      <div class="form-group mt-3">
+      <div class="form-group mt-3 box-shahow">
         Note:
         {{ form.message }}
       </div>
       <br>
-      <div class="text-center"><input type="submit" value="Reserve Table"></div>
+      <div class="text-center"><input type="submit" value="Reserve Table" class="btn-reservation box-shahow"></div>
       <br>
 
       
@@ -70,9 +70,10 @@
     {% endif %}
 
     {% else %}
-    <br><br><br><br><br><br>
-    <h1>You must be logged in to book a reservation.</h1>
-    <a href="{% url 'login' %}">Login Here</a>
+    <div class="position-absolute top-50 start-50 translate-middle">
+      <h1>You must be logged in to book a reservation.</h1>
+      <a href="#" class="btn-reservation box-shahow" role="button" data-bs-toggle="modal" data-bs-target="#loginModal">Login Here</a> 
+      </div>
     {% endif %}
   </div>
 </div>

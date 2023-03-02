@@ -199,19 +199,30 @@ section > .hero-content {
 /* common */
 .btn-reservation {
   background-color: #fea116;
-  color: #0c0b09 !important;
-  border-radius: 5px;
-  padding: 10px 14px;
+  margin: 0 0 0 15px;
+  border: 2px solid #ffb639;
+  color: #fff;
+  border-radius: 10px;
+  padding: 8px 25px;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: 0.3s;
 }
 
-.btn-reservation.white {
-  color: #ffffff;
+.btn-reservation:hover {
+  background: #cda45e;
+  color: #fff;
 }
+
+
 
 span.validation-message {
   color: #a40000;
   font-size: 12px;
 }
+
 
 /* modals */
 
@@ -229,6 +240,12 @@ span.validation-message {
 }
 
 @media only screen and (max-width: 575px) {
+
+.modal,
+.modal-content{
+  width: 98%;
+}
+
   .login-modal .modal-dialog,
   .register-modal .modal-dialog {
     width: 100%;
@@ -238,6 +255,8 @@ span.validation-message {
 .form-modal .modal-content {
   border: none;
   border-radius: 5px;
+  margin-top: 20px;
+
 }
 
 .form-modal .logo-container {
@@ -252,7 +271,7 @@ span.validation-message {
 
 .form-modal form input {
   border-radius: 5px;
-  width: 100%;
+  width: 93%;
 }
 
 .form-modal form input[type="submit"] {
@@ -431,7 +450,7 @@ form ul li {
 
 /* user reservation list */
 
-.res-list-bg {
+.rest-bg {
   background-image: url(https://res.cloudinary.com/dhign8ar8/image/upload/v1677436836/static/images/list-bg.jpg);
   background-size: cover;
   position:absolute;
@@ -483,11 +502,14 @@ form ul li {
   .res-list-empty {
     font-size: 15px;
   }
+}
 
-  
 /* Update Container */
 
 .update-container{
+  font-size: 20px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
   color: #0c0b09;
   text-shadow: 2px 2px 5px #fff;
 
@@ -501,4 +523,8 @@ form ul li {
   background: #0c0b09;
   margin: 4px 10px;
   
+}
+
+.box-shahow{
+  box-shadow: 0 0px 0px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }

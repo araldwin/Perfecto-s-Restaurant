@@ -9,15 +9,16 @@
                 <div class="logo-container display-flex">
                     <span><img class="modal-logo" src="../../static/images/Perfecto's.png" height="120" alt=""></span>
                 </div>
-
+                
                 <div class="messages">
                     <p id="response-message"></p>
                 </div>
+            
 
                 <form id="register-form" action="{% url 'register_user' %}" method=POST>
                     {% csrf_token %}
                     <div id="form-content"> {{ form.as_p }}</div>
-                    <input type="submit" id="register-btn" value="Register" class="btn btn-secondary btn-reservation">
+                    <input type="submit" id="register-btn" value="Register" class="btn-reservation">
                 </form>
             </div>
         </div>

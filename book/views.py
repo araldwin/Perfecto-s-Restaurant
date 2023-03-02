@@ -56,11 +56,19 @@ def update_reservation(request, reservation_id):
     book = Book.objects.get(pk=reservation_id)
     form = BookForm(request.POST or None, instance=book)
     if form.is_valid():
-        form.save()
-        return redirect('list-reservation')
+        # Check if the user has already made a reservation for the given date slot
+        existing_reservations = Book.objects.filter(
+            user=request.user,
+            book_date=form.cleaned_data['book_date'],
+        ).exclude(pk=reservation_id)
+        if existing_reservations.exists():
+            # If a reservation already exists for the user and time slot, display an error message
+            form.add_error('book_date', 'You have already reserved a table for this date.')
+        else:
+            form.save()
+            return redirect('list-reservation')
 
-    return render(request, 'update_reservation.html',
-                  {'book': book, 'form': form})
+    return render(request, 'update_reservation.html', {'book': book, 'form': form})
 
 
 def show_reservation(request, reservation_id):

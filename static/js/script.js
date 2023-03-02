@@ -101,7 +101,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-var pagination = document.getElementById('pagination');
-if (document.querySelectorAll('.card').length === 0) {
-  document.querySelector('.pagination').style.display = 'none';
+var paginationElement = document.querySelector('.pagination');
+var cardElements = document.querySelectorAll('.card');
+
+if (cardElements.length === 0 && paginationElement !== null) {
+  paginationElement.style.display = 'none';
 }

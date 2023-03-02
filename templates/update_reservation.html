@@ -2,71 +2,76 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<div class="container-fluid res-list-bg">
-    <div class="container update-container">
-        {% if user.is_authenticated %}
-        <div class="card-header text-center">
-          <h1>Update My Reservation</h1>
-          {% if form.errors %}
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            Sorry, double booking is not allowed!
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-          {% endif %}
-        </div>
-        {% if submitted %}
-        <div class="alert alert-success" role="alert">
-          Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!
-        </div>
-      
-        {% else %}
-        <form action="" method="post" role="form">
-          {% csrf_token %}
-      
-          <div class="row">
-            <div class="col-lg-4 col-md-6 form-group">
-              Name:
-              {{ form.name }}
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-              Phone:
-              {{ form.phone }}
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-              Email:
-              {{ form.email }}
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
-              Date:
-              {{ form.book_date }}
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
-              Time:
-              {{ form.book_time }}
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
-              No. of Guest
-              {{ form.people }}
-            </div>
-          </div>
-          <div class="form-group mt-3">
-            Note:
-            {{ form.message }}
-          </div>
-          <br>
-          <div class="text-center"><input type="submit" value="Update" class="btn-reservation"></div>
-          <br>
-        </form>
-        {% endif %}
-      
-        {% else %}
-        <br><br><br><br><br><br>
-        <h1>You must be logged in to book a reservation.</h1>
-        <a href="{% url 'login' %}">Login Here</a>
-        {% endif %}
-    </div>
-</div>
+<div class="container-fluid rest-bg">
+  <div class="container update-container">
 
+    {% if user.is_authenticated %}
+    <div class="card-header text-center box-shahow">
+      <h1>Update Reservation</h1>
+
+      {% if form.errors.book_date %}
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ form.errors.book_date }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endif %}
+
+      {% if form.errors.book_time %}
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ form.errors.book_time }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endif %}
+
+    </div>
+    {% if submitted %}
+
+    {% else %}
+    <form action="" method="post" role="form">
+      {% csrf_token %}
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6 form-group box-shahow">
+          Name:
+          {{ form.name }}
+        </div>
+        <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0 box-shahow">
+          Phone:
+          {{ form.phone }}
+        </div>
+        <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0 box-shahow">
+          Email:
+          {{ form.email }}
+        </div>
+        <div class="col-lg-4 col-md-6 form-group mt-3 box-shahow">
+          Date:
+          {{ form.book_date }}
+        </div>
+        <div class="col-lg-4 col-md-6 form-group mt-3 box-shahow">
+          Time:
+          {{ form.book_time }}
+        </div>
+        <div class="col-lg-4 col-md-6 form-group mt-3 box-shahow">
+          No. of Guest
+          {{ form.people }}
+        </div>
+      </div>
+      <div class="form-group mt-3 box-shahow">
+        Note:
+        {{ form.message }}
+      </div>
+      <br>
+      <div class="text-center"><input type="submit" value="Update" class="btn-reservation box-shahow"></div>
+      <br>
+    </form>
+    {% endif %}
+
+    {% else %}
+
+    <h1>You must be logged in to book a reservation.</h1>
+    <a href="{% url 'login' %}">Login Here</a>
+    {% endif %}
+  </div>
+</div>
 {% endif %}
 {% endblock %}
-

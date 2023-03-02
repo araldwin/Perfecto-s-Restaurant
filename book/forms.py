@@ -49,15 +49,6 @@ class BookForm(ModelForm):
         book_date = self.cleaned_data.get('book_date')
         if book_date and book_date < date.today():
             raise ValidationError('Book date cannot be in the past')
-
-        # Check if a reservation already exists for the given date
-        reservations = Book.objects.filter(book_date=book_date)
-        if self.instance:
-            # Exclude the current reservation if updating an existing reservation
-            reservations = reservations.exclude(id=self.instance.id)
-        if reservations.exists():
-            raise ValidationError('You have already reserved a table for this date.')
-
         return book_date
 
     book_time = forms.TimeField(
@@ -110,7 +101,7 @@ class BookForm(ModelForm):
             'message': forms.Textarea(attrs={
                 'class': 'form-control',
                 'placeholder': 'Please add your message and request here...'
-            }),
+                }),
         }
 
 
