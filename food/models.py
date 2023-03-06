@@ -1,6 +1,7 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 from django.utils.text import slugify
+from decimal import Decimal
 
 
 class Food(models.Model):
@@ -9,7 +10,11 @@ class Food(models.Model):
     price = models.DecimalField(max_digits=5, decimal_places=2)
     featured_image = CloudinaryField('image', default='placeholder')
     slug = models.SlugField(blank=True, null=True)
-    rating = models.DecimalField(max_digits=3, decimal_places=2, default=0.00)
+    rating = models.DecimalField(
+        max_digits=3,
+        decimal_places=2,
+        default=Decimal('0.00')
+        )
     num_ratings = models.PositiveIntegerField(default=0)
 
     def save(self, *args, **kwargs):
