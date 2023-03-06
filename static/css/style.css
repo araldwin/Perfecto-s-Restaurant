@@ -340,7 +340,7 @@ form ul li {
   height: auto;
   flex-direction: row;
   flex-wrap: wrap;
-  background-image: url(https://res.cloudinary.com/dhign8ar8/image/upload/v1678086004/static/images/pexels-pranav-jain-1707957_yfujvm.jpg);
+  background-image: url(../images/pexels-pranav-jain-1707957.jpg);
 }
 
 .section-content {
@@ -365,7 +365,7 @@ form ul li {
   height: 100vh;
   flex-direction: row;
   flex-wrap: wrap;
-  background-image: url(https://res.cloudinary.com/dhign8ar8/image/upload/v1678086008/static/images/pexels-karolina-grabowska-4033636_fn3nir.jpg);
+  background-image: url(../images/pexels-karolina-grabowska-4033636.jpg);
 }
 
 .menu-container .menu-item {
@@ -451,7 +451,7 @@ form ul li {
 /* user reservation list */
 
 .rest-bg {
-  background-image: url(https://res.cloudinary.com/dhign8ar8/image/upload/v1677436836/static/images/list-bg.jpg);
+  background-image: url(../images/lukas-blazek-EWDvHNNfUmQ-unsplash.jpg);
   background-size: cover;
   position:absolute;
   top: 0; 

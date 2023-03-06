@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load cloudinary %}
 {% block content %}
 <section class="parallax-container">
   <div class="hero-content text-center">
@@ -13,15 +14,15 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img
-          src="https://res.cloudinary.com/dhign8ar8/image/upload/v1677141081/pexels-bea-dela-cruz-12594202_y4v9pa.jpg"
+          src="{% static 'images/pexels-bea-dela-cruz-12594202.jpg' %}"
           alt="...">
       </div>
       <div class="carousel-item">
-        <img src="https://res.cloudinary.com/dhign8ar8/image/upload/v1677141071/pexels-daniel-reche-3616956_drw7d8.jpg"
+        <img src="{% static 'images/pexels-daniel-reche-3616956.jpg' %}"
           alt="...">
       </div>
       <div class="carousel-item">
-        <img src="https://res.cloudinary.com/dhign8ar8/image/upload/v1676896276/hero-bg_wj6qoh.jpg" alt="...">
+        <img src="{% static 'images/hero-bg.jpg' %}" alt="...">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
