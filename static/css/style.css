@@ -340,7 +340,7 @@ form ul li {
   height: auto;
   flex-direction: row;
   flex-wrap: wrap;
-  background-image: url(../images/pexels-pranav-jain-1707957.jpg);
+  background-image: url(https://res.cloudinary.com/dhign8ar8/image/upload/v1678086004/static/images/pexels-pranav-jain-1707957_yfujvm.jpg);
 }
 
 .section-content {
@@ -365,7 +365,7 @@ form ul li {
   height: 100vh;
   flex-direction: row;
   flex-wrap: wrap;
-  background-image: url(../images/pexels-karolina-grabowska-4033636.jpg);
+  background-image: url(https://res.cloudinary.com/dhign8ar8/image/upload/v1678086008/static/images/pexels-karolina-grabowska-4033636_fn3nir.jpg);
 }
 
 .menu-container .menu-item {
