@@ -528,3 +528,19 @@ form ul li {
 .box-shahow{
   box-shadow: 0 0px 0px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
+
+/* 404 page */
+
+
+.page-not-found{
+  border: 15px solid #fea116;
+  padding: 50px;
+  margin: 65px 0;
+  color: #0c0b09
+}
+
+@media only screen and (max-width: 428px) {
+  .page-not-found{
+    width: 300px;
+  }
+}
