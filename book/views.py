@@ -66,12 +66,24 @@ def update_reservation(request, reservation_id):
         ).exclude(pk=reservation_id)
         if existing_reservations.exists():
             # If a reservation already exists for the user and time slot, display an error message
-            form.add_error('book_date', 'You have already reserved a table for this date.')
+            form.add_error('book_date',
+                           'You have already reserved a table for '
+                           'this date.')
         else:
             form.save()
+            messages.success(request, 'Reservation updated successfully. '
+                                      'We will call back or send an Email '
+                                      'to confirm your reservation. '
+                                      'Thank you!')
             return redirect('list-reservation')
-
-    return render(request, 'update_reservation.html', {'book': book, 'form': form})
+    else:
+        messages.error(request, 'Failed to update reservation. '
+                                'Please check the form for errors.')
+    return render(
+        request,
+        'update_reservation.html',
+        {'book': book, 'form': form}
+    )
 
 
 def show_reservation(request, reservation_id):

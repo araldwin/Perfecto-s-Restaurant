@@ -8,8 +8,9 @@
     {% if user.is_authenticated %}
     <div class="card-header text-center box-shahow">
       <h1>Update Reservation</h1>
+    </div>
 
-      {% if form.errors.book_date %}
+    {% if form.errors.book_date %}
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
         {{ form.errors.book_date }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -22,8 +23,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
       {% endif %}
-
-    </div>
+      
     {% if submitted %}
 
     {% else %}

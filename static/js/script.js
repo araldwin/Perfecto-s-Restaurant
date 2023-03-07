@@ -85,12 +85,14 @@ function openRegisterModal() {
   });
 }
 
-
+// reservation_list page
+// cancel reservation
 $(document).ready(function () {
   $('#deleteReservationModal').on('hidden.bs.modal', function () {
     location.reload();
   });
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const cancelReservationBtn = document.getElementById("cancelReservationBtn");
@@ -101,9 +103,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+
 var paginationElement = document.querySelector('.pagination');
 var cardElements = document.querySelectorAll('.card');
 
 if (cardElements.length === 0 && paginationElement !== null) {
   paginationElement.style.display = 'none';
 }
+
+
