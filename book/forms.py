@@ -8,11 +8,39 @@ from .models import Book
 from datetime import date
 import datetime
 
-# Create a Booking form
-
 
 class BookForm(ModelForm):
+    """
+    A form used to book a table in a restaurant application.
 
+    Attributes:
+    -----------
+    book_date : DateField
+        A field for selecting the date of the booking.
+    book_time : TimeField
+        A field for selecting the time of the booking.
+    people : IntegerField
+        A field for selecting the number of people for the booking.
+
+    Methods:
+    --------
+    clean_book_date():
+        Validates that the selected date is not in the past.
+    clean_book_time():
+        Validates that the selected time is within the opening
+        hours of the restaurant.
+
+    Meta:
+    ----
+    model : Book
+        The model to use for this form.
+    fields : tuple
+        The fields to include in the form.
+    labels : dict
+        The labels to use for each field.
+    widgets : dict
+        The widgets to use for each field.
+    """
     book_date = forms.DateField(
         widget=forms.DateInput(
             attrs={'type': 'date', 'class': 'form-control',
@@ -36,8 +64,8 @@ class BookForm(ModelForm):
     def clean_book_time(self):
         book_time = self.cleaned_data.get('book_time')
         if book_time:
-            open_time = datetime.time(10, 0)  # Replace with actual opening time
-            close_time = datetime.time(19, 0)  # Replace with actual closing time
+            open_time = datetime.time(10, 0)
+            close_time = datetime.time(19, 0)
             if book_time < open_time or book_time > close_time:
                 raise ValidationError("You can only reserve a table between "
                                       "10:00 to 19:00.")
@@ -87,31 +115,37 @@ class BookForm(ModelForm):
 
 class RegisterUserForm(UserCreationForm):
     """
-    This is a custom form class RegisterUserForm inherited from Django's built-
-    in UserCreationForm. It is designed to extend the functionality of the
-    base class by adding email, first_name, and last_name fields.
+    A Django form used to register new users in an application,
+    based on the built-in UserCreationForm.
 
-    The email, first_name, and last_name fields are declared as forms.
-    EmailField and forms.CharField respectively, and each has a widget
-    that defines its visual presentation in the HTML form. The widgets
-    are set with the attrs dictionary, which contains a CSS class to
-    apply to the form input fields.
+    Attributes:
+    ----------
+    email: forms.EmailField
+        Field for user email input, with an email
+        input widget and CSS class form-control.
+    first_name: forms.CharField
+        Field for user first name input, with a text
+        input widget and CSS class form-control.
+    last_name: forms.CharField
+        Field for user last name input, with a text
+        input widget and CSS class form-control.
 
-    The Meta class defines the model that this form is associated with,
-    as well as the fields that should be included in the form.
-    The password1 and password2 fields are inherited from the base class
-    and represent the password and password confirmation fields.
+    Meta:
+    ----
+    model: User
+        The user model to use for the form.
+    fields: tuple
+        The fields to include in the form.
 
-    The clean_email method performs custom validation on the email field.
-    It checks if the email already exists in the User model using the User.
-    objects.filter() method. If it exists, a ValidationError is raised.
-
-    The __init__ method is used to customize the widget attributes of
-    the username, password1, and password2 fields, setting the class attribute
-    to 'form-control' for each of them. This adds a CSS class to the input
-    fields, making them visually consistent with the other form fields.
+    Methods:
+    -------
+    clean_email()
+        Validates the email field and raises a validation
+        error if the email is already in use.
+    init(self, *args, **kwargs)
+        Initializes the form and sets the CSS classes for
+        the username, password1, and password2 fields.
     """
-
     email = forms.EmailField(widget=forms.EmailInput(
         attrs={'class': 'form-control'}))
     first_name = forms.CharField(
