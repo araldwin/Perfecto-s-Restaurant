@@ -86,9 +86,6 @@ def update_reservation(request, reservation_id):
     )
 
 
-def show_reservation(request, reservation_id):
-    book = Book.objects.get(pk=reservation_id)
-    return render(request, 'show_reservation.html', {'book': book})
 
 
 # Reservation_list page
