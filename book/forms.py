@@ -8,35 +8,10 @@ from .models import Book
 from datetime import date
 import datetime
 
-
-
 # Create a Booking form
+
+
 class BookForm(ModelForm):
-    """
-    This is a custom form class BookForm that is designed to create a form for
-    booking a restaurant table.
-
-    The form is created using Django's built-in ModelForm, which is a shortcut
-    for creating a form based on an existing model. In this case, the Book
-    model is used as the basis for the form.
-
-    The form includes several fields, such as name, phone, email, book_date,
-    book_time, people, and message. Each of these fields is defined as a forms
-    class with various attributes such as widgets, attrs, and placeholders.
-
-    Number of People input field will now be an integer field with a maximum
-    value of 20 and a maximum of 2 digits. The field will also include a
-    validator to ensure that the input does not exceed 20.
-
-    The Meta class is used to specify the model used for the form and the
-    fields that should be included in the form. The labels and widgets
-    dictionaries are used to customize the labels and widgets of the
-    form fields, respectively.
-
-    Overall, this BookForm class is used to generate a HTML form that users
-    can use to make a booking for a restaurant table, with customized
-    validation and visual attributes for each form field.
-    """
 
     book_date = forms.DateField(
         widget=forms.DateInput(
@@ -62,20 +37,25 @@ class BookForm(ModelForm):
         book_time = self.cleaned_data.get('book_time')
         if book_time:
             open_time = datetime.time(10, 0)  # Replace with actual opening time
-            close_time = datetime.time(22, 0)  # Replace with actual closing time
-            if book_time < open_time:
-                raise ValidationError(f'Booking time must be after {open_time.strftime("%I:%M %p")}')
-            elif book_time > close_time:
-                raise ValidationError(f'Booking time must be before {close_time.strftime("%I:%M %p")}')
+            close_time = datetime.time(19, 0)  # Replace with actual closing time
+            if book_time < open_time or book_time > close_time:
+                raise ValidationError("You can only reserve a table between "
+                                      "10:00 to 19:00.")
         return book_time
 
-    people = forms.IntegerField(widget=forms.NumberInput(
-        attrs={'class': 'form-control', 'placeholder': 'Number of people',
-               'max': 20}),
+    people = forms.IntegerField(
+        widget=forms.NumberInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': 'Maximum of 10 per reservation',
+                'max': 10
+            }
+        ),
         validators=[MaxValueValidator(20)],
-        max_value=20,
-        min_value=1,)
-  
+        max_value=10,
+        min_value=1,
+    )
+
     class Meta:
         model = Book
         fields = ('name', 'phone', 'book_date', 'email',

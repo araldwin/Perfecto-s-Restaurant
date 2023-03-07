@@ -9,18 +9,18 @@
     </div>
 
     {% if form.errors.book_date %}
-        <div class="alert alert-danger alert-dismissible fade show box-shahow" role="alert">
-          {{ form.errors.book_date }}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        {% endif %}
+    <div class="alert alert-danger alert-dismissible fade show box-shahow" role="alert">
+      {{ form.errors.book_date }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
 
-        {% if form.errors.book_time %}
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          {{ form.errors.book_time }}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      {% endif %}
+    {% if form.errors.book_time %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{ form.errors.book_time }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
 
     {% if submitted %}
     <div class="alert alert-success" role="alert">
@@ -65,15 +65,16 @@
       <div class="text-center"><input type="submit" value="Reserve Table" class="btn-reservation box-shahow"></div>
       <br>
 
-      
+
     </form>
     {% endif %}
 
     {% else %}
     <div class="position-absolute top-50 start-50 translate-middle">
       <h1>You must be logged in to book a reservation.</h1>
-      <a href="#" class="btn-reservation box-shahow" role="button" data-bs-toggle="modal" data-bs-target="#loginModal">Login Here</a> 
-      </div>
+      <a href="#" class="btn-reservation box-shahow" role="button" data-bs-toggle="modal"
+        data-bs-target="#loginModal">Login Here</a>
+    </div>
     {% endif %}
   </div>
 </div>

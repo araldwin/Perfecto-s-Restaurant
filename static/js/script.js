@@ -85,7 +85,9 @@ function openRegisterModal() {
   });
 }
 
-// reservation_list page
+
+
+// reservation list
 // cancel reservation
 $(document).ready(function () {
   $('#deleteReservationModal').on('hidden.bs.modal', function () {
