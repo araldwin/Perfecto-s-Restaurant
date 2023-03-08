@@ -12,7 +12,7 @@ from food.models import Food
 from .forms import RegisterUserForm
 from .models import Book
 from .forms import BookForm
-
+from django.urls import reverse
 
 def register_user(request):
 
@@ -49,7 +49,6 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    messages.success(request, ("You Were Logged Out!"))
     return redirect('home')
 
 
@@ -79,7 +78,7 @@ def add_reservation(request):
                 book = form.save(commit=False)
                 book.user = request.user
                 book.save()
-                return HttpResponseRedirect('/add_reservation?submitted=True')
+                return redirect(reverse('add-reservation') + '?submitted=True')
     else:
         form = BookForm()
         if 'submitted' in request.GET:
