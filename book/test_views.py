@@ -2,12 +2,10 @@ from django.test import Client, TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
 from book.forms import RegisterUserForm
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate
 from datetime import date
-
 from food.models import Food
 from .models import Book
-from .forms import BookForm
 
 
 class RegisterUserFormTestCase(TestCase):
@@ -95,6 +93,12 @@ class RegisterUserFormTestCase(TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertIn(b'This email address already exists.', response.content)
 
+    def test_register_user_renders_correct_template(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'registration/register_modal.html')
+        self.assertIsInstance(response.context['form'], RegisterUserForm)
+
 
 class LoginTestCase(TestCase):
 
@@ -144,6 +148,13 @@ class LoginTestCase(TestCase):
             )
         )
 
+    def test_login_renders_login_page(self):
+        url = reverse('login')
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'registration/login.html')
+
 
 class LogoutTestCase(TestCase):
 
@@ -182,7 +193,7 @@ class HomeViewTest(TestCase):
 
 
 class AddReservationTestCase(TestCase):
-    def setUp(self):
+    def setUpTestCase(self):
         self.client = Client()
         self.user = User.objects.create_user(
             username='aldwin',
@@ -190,7 +201,7 @@ class AddReservationTestCase(TestCase):
         )
 
     def test_reservation_submitted(self):
-        self.client.login(username='aldwin', password='testcasedjango2023')    
+        self.client.login(username='aldwin', password='testcasedjango2023')
         response = self.client.post(reverse('add-reservation'), {
             'name': 'Aldwin Arriola',
             'phone': '1234567890',
@@ -238,9 +249,18 @@ class AddReservationTestCase(TestCase):
         })
         self.assertEqual(response.status_code, 200)
         self.assertFalse(response.context['form'].is_valid())
-        self.assertFalse(Book.objects.filter(user=self.user, name='Aldwin Arriola').exists())
-        self.assertTrue(Book.objects.filter(user=self.user, name='Juan Tamad').exists())
-        self.assertEqual(response.context['form'].errors['book_date'], ['You have already reserved a table for this date.'])
+        self.assertFalse(
+            Book.objects.filter(user=self.user, name='Aldwin Arriola').exists()
+                )
+        self.assertTrue(
+            Book.objects.filter(user=self.user, name='Juan Tamad').exists()
+            )
+        expected_error = 'You have already reserved a table for this date.'
+        self.assertEqual(
+            response.context['form'].errors['book_date'],
+            [expected_error],
+            msg='Incorrect error message for booking date.'
+        )
 
     def setUp(self):
         self.client = Client()
@@ -250,10 +270,7 @@ class AddReservationTestCase(TestCase):
         )
 
     def test_reservation_invalid(self):
-        # Log in the user
         self.client.login(username='aldwin', password='testcasedjango2023')
-
-        # Make a POST request to add a reservation with invalid data
         response = self.client.post(reverse('add-reservation'), {
             'name': '',
             'phone': '1234567890',
@@ -263,12 +280,130 @@ class AddReservationTestCase(TestCase):
             'people': 2,
             'message': '',
         })
-
-        # Check that the form is invalid and the reservation is not added to the database
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'add_reservation.html')
         self.assertFalse(response.context['form'].is_valid())
         self.assertFalse(
             Book.objects.filter(user=self.user, name='Aldwin Arriola').exists()
         )
-        
+
+
+class ListReservationTestCase(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username='aldwin',
+            password='testcasedjango2023'
+        )
+        self.client.login(username='aldwin', password='testcasedjango2023')
+        Book.objects.create(
+            book_date='2022-06-30',
+            book_time='19:30:00',
+            people='4',
+            email='araldwin',
+            phone='1234567890',
+            message='This is a test message'
+        )
+
+    def test_list_reservation(self):
+        response = self.client.get(reverse('list-reservation'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Reservation list')
+        self.assertTemplateUsed(response, 'reservation_list.html')
+
+    def test_list_reservation_user_filter(self):
+        other_user = User.objects.create_user(
+            username='other_user',
+            password='testcasedjango2023'
+        )
+        Book.objects.create(
+            book_date='2023-06-30',
+            book_time='19:30:00',
+            people='4',
+            email='other_user',
+            phone='1234567890',
+            message='This is a test message',
+            user=other_user
+        )
+        Book.objects.create(
+            book_date='2023-07-01',
+            book_time='20:00:00',
+            people='2',
+            email='aldwin',
+            phone='0987654321',
+            message='This is another test message',
+            user=self.user
+        )
+        response = self.client.get(reverse('list-reservation'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Reservation list')
+        self.assertTemplateUsed(response, 'reservation_list.html')
+        self.assertContains(response, 'aldwin')
+        self.assertNotContains(response, 'other_user')
+
+
+class UpdateReservationTestCase(TestCase):
+    def setUp(self):
+
+        self.user = User.objects.create_user(
+            username='aldwin',
+            password='testcasedjango2023'
+        )
+        self.reservation = Book.objects.create(
+            user=self.user,
+            book_date=date(2023, 3, 10))
+        self.url = reverse('update-reservation', args=[self.reservation.pk])
+
+    def test_update_reservation_success(self):
+        data = {
+            'name': 'Aldwin Arriola',
+            'phone': '1234567890',
+            'email': 'araldwin@gmail.com',
+            'book_date': '2023-03-11',
+            'book_time': '12:00',
+            'people': 2,
+            'message': '',
+        }
+        self.client.login(username='aldwin', password='testcasedjango2023')
+        url = reverse('update-reservation', args=[self.reservation.pk])
+        response = self.client.post(url, data=data)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('list-reservation'))
+        self.reservation.refresh_from_db()
+        self.assertEqual(self.reservation.book_date, date(2023, 3, 11))
+
+    def test_update_reservation_failure(self):
+        data = {
+            'name': 'Aldwin Arriola',
+            'phone': '1234567890',
+            'email': 'araldwin@gmail.com',
+            'book_date': '2023-03-10',
+            'book_time': '12:00',
+            'people': 2,
+            'message': '',
+        }
+        self.client.login(username='aldwin', password='testcasedjango2023')
+        url = reverse('update-reservation', args=[self.reservation.pk])
+        response = self.client.post(url, data=data)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('list-reservation'))
+        self.reservation.refresh_from_db()
+        self.assertEqual(self.reservation.book_date, date(2023, 3, 10))
+
+
+class DeleteReservationTestCase(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username='aldwin',
+            password='testcasedjango2023'
+        )
+        self.reservation = Book.objects.create(
+            user=self.user,
+            book_date=date(2023, 3, 10)
+        )
+
+    def test_delete_reservation(self):
+        self.client.login(username='aldwin', password='testcasedjango2023')
+        url = reverse('delete-reservation', args=[self.reservation.pk])
+        response = self.client.post(url)
+        self.assertRedirects(response, reverse('list-reservation'))
+        self.assertFalse(Book.objects.filter(pk=self.reservation.pk).exists())

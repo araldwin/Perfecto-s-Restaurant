@@ -14,10 +14,9 @@ from .models import Book
 from .forms import BookForm
 from django.urls import reverse
 
+
 def register_user(request):
-
     form = RegisterUserForm(request.POST)
-
     if request.method == "POST":
         form = RegisterUserForm(request.POST)
 
@@ -63,13 +62,11 @@ def add_reservation(request):
     if request.method == "POST":
         form = BookForm(request.POST)
         if form.is_valid():
-            # Check if the user has already made a reservation for the given date slot
             existing_reservations = Book.objects.filter(
                 user=request.user,
                 book_date=form.cleaned_data['book_date'],
             )
             if existing_reservations.exists():
-                # If a reservation already exists for the user and time slot, display an error message
                 form.add_error('book_date',
                                'You have already reserved a table for this '
                                'date.')
@@ -119,8 +116,7 @@ def list_reservation(request):
     page_obj = paginator.get_page(page_number)
     nums = "a" * page_obj.paginator.num_pages
     return render(request, 'reservation_list.html',
-                  {'reservation_list': reservation_list,
-                   'page_obj':  page_obj,
+                  {'page_obj':  page_obj,
                    'nums': nums})
 
 
@@ -128,13 +124,11 @@ def update_reservation(request, reservation_id):
     book = Book.objects.get(pk=reservation_id)
     form = BookForm(request.POST or None, instance=book)
     if form.is_valid():
-        # Check if the user has already made a reservation for the given date slot
         existing_reservations = Book.objects.filter(
             user=request.user,
             book_date=form.cleaned_data['book_date'],
         ).exclude(pk=reservation_id)
         if existing_reservations.exists():
-            # If a reservation already exists for the user and time slot, display an error message
             form.add_error('book_date',
                            'You have already reserved a table for '
                            'this date.')
