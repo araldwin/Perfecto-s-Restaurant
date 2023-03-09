@@ -1,6 +1,5 @@
 from django.http import (
     HttpResponse,
-    HttpResponseRedirect
 )
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
@@ -71,7 +70,6 @@ def add_reservation(request):
                                'You have already reserved a table for this '
                                'date.')
             else:
-                # If no reservation exists, create a new one for the user
                 book = form.save(commit=False)
                 book.user = request.user
                 book.save()
@@ -80,7 +78,10 @@ def add_reservation(request):
         form = BookForm()
         if 'submitted' in request.GET:
             submitted = True
-    return render(request, 'add_reservation.html', {'form': form, 'submitted': submitted})
+
+    return render(request, 'add_reservation.html',
+                  {'form': form, 'submitted': submitted})
+
 
 # Reservation_list page
 

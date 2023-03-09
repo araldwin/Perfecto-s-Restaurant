@@ -341,7 +341,7 @@ class ListReservationTestCase(TestCase):
         self.assertNotContains(response, 'other_user')
 
 
-class UpdateReservationTestCase(TestCase):
+class UpdateReservationTest(TestCase):
     def setUp(self):
 
         self.user = User.objects.create_user(

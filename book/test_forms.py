@@ -6,7 +6,8 @@ from django.contrib.auth.models import User
 
 class BookFormTest(TestCase):
     """
-    A TestCase class for testing the BookForm form used to make reservations in a restaurant application.
+    A TestCase class for testing the BookForm form used to make reservations
+    in a restaurant application.
 
     Methods:
     -------
