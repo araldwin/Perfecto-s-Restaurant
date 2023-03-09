@@ -82,7 +82,6 @@ def add_reservation(request):
             submitted = True
     return render(request, 'add_reservation.html', {'form': form, 'submitted': submitted})
 
-
 # Reservation_list page
 
 
@@ -140,8 +139,7 @@ def update_reservation(request, reservation_id):
                                       'Thank you!')
             return redirect('list-reservation')
     else:
-        messages.error(request, 'Failed to update reservation. '
-                                'Please check the form for errors.')
+        pass
     return render(
         request,
         'update_reservation.html',

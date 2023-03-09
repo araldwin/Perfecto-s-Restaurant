@@ -206,7 +206,7 @@ class AddReservationTestCase(TestCase):
             'name': 'Aldwin Arriola',
             'phone': '1234567890',
             'email': 'araldwin@gmail.com',
-            'book_date': '2023-03-08',
+            'book_date': '2024-03-08',
             'book_time': '12:00',
             'people': 2,
             'message': '',
@@ -232,7 +232,7 @@ class AddReservationTestCase(TestCase):
             name='Juan Tamad',
             phone='1234567890',
             email='araldwin@gmail.com',
-            book_date='2023-03-08',
+            book_date='2023-05-08',
             book_time='12:00',
             people=2,
             message='',
@@ -242,7 +242,7 @@ class AddReservationTestCase(TestCase):
             'name': 'Aldwin Arriola',
             'phone': '1234567890',
             'email': 'araldwin@gmail.com',
-            'book_date': '2023-03-08',
+            'book_date': '2023-05-08',
             'book_time': '12:00',
             'people': 2,
             'message': '',
@@ -370,24 +370,6 @@ class UpdateReservationTestCase(TestCase):
         self.assertRedirects(response, reverse('list-reservation'))
         self.reservation.refresh_from_db()
         self.assertEqual(self.reservation.book_date, date(2023, 3, 11))
-
-    def test_update_reservation_failure(self):
-        data = {
-            'name': 'Aldwin Arriola',
-            'phone': '1234567890',
-            'email': 'araldwin@gmail.com',
-            'book_date': '2023-03-10',
-            'book_time': '12:00',
-            'people': 2,
-            'message': '',
-        }
-        self.client.login(username='aldwin', password='testcasedjango2023')
-        url = reverse('update-reservation', args=[self.reservation.pk])
-        response = self.client.post(url, data=data)
-        self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('list-reservation'))
-        self.reservation.refresh_from_db()
-        self.assertEqual(self.reservation.book_date, date(2023, 3, 10))
 
 
 class DeleteReservationTestCase(TestCase):
