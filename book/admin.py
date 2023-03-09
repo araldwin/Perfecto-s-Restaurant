@@ -6,6 +6,7 @@ admin.site.site_header = "Perfectos Admin"
 admin.site.site_title = "Perfectos Admin Area"
 admin.site.index_title = "Welcome to the Perfectos Admin Area"
 
+
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     list_display = ('name', 'phone', 'email',
