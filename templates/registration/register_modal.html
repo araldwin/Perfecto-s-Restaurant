@@ -10,11 +10,11 @@
                 <div class="logo-container display-flex">
                     <span><img class="modal-logo" src="{% static 'images/perfectos.png' %}" height="120" alt=""></span>
                 </div>
-                
+
                 <div class="messages">
                     <p id="response-message"></p>
                 </div>
-            
+
 
                 <form id="register-form" action="{% url 'register_user' %}" method=POST>
                     {% csrf_token %}
@@ -38,14 +38,16 @@
                     data: $('#register-form').serialize(),
                     success: function (data) {
                         $('#register-form').find('#form-content').html("")
-                        $('.register-modal #response-message').text(data).addClass("text-success")
+                        $('.register-modal #response-message').text(data).addClass(
+                            "text-success")
                         window.location.replace("/");
                     },
                     error: function (data) {
                         $('#register-form').find('#form-content').html(data.responseText)
-                        $("#register-form ul.errorlist li, #register-form ul.errorlist").each(function (el) {
-                            $(this).css('display', 'block')
-                        })
+                        $("#register-form ul.errorlist li, #register-form ul.errorlist")
+                            .each(function (el) {
+                                $(this).css('display', 'block')
+                            })
                     }
                 });
             });

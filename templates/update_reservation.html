@@ -11,19 +11,19 @@
     </div>
 
     {% if form.errors.book_date %}
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        {{ form.errors.book_date }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      {% endif %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{ form.errors.book_date }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
 
-      {% if form.errors.book_time %}
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        {{ form.errors.book_time }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      {% endif %}
-      
+    {% if form.errors.book_time %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{ form.errors.book_time }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+
     {% if submitted %}
 
     {% else %}

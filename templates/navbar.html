@@ -2,9 +2,7 @@
 <nav class="navbar navbar-dark fixed-top bg-blur-mobile navbar-expand-lg" data-spy="affix" data-offset-top="197">
   <div class="container">
 
-    <img class="logo"
-      src="{% static 'images/perfectos_white.png' %}"
-      height="80" alt="Perfecto's">
+    <img class="logo" src="{% static 'images/perfectos_white.png' %}" height="80" alt="Perfecto's">
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
       aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +26,7 @@
           <a class="nav-link dropdown-toggle btn-reservation" id="book-button" href="#" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
             Book a Reservation
-          </a>        
+          </a>
 
           <ul class="dropdown-menu ">
             <li><a class="dropdown-item " href="{% url 'add-reservation' %}">Make a Reservation</a></li>
@@ -39,7 +37,8 @@
         {% else %}
 
         <li class="nav-item">
-          <a class="btn-reservation box-shahow" href="{% url 'add-reservation' %}" id="book-login-button">Book a Reservation</a>
+          <a class="btn-reservation box-shahow" href="{% url 'add-reservation' %}" id="book-login-button">Book a
+            Reservation</a>
         </li>
 
         {% endif %}
