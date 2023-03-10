@@ -19,7 +19,7 @@
                 <form id="register-form" action="{% url 'register_user' %}" method=POST>
                     {% csrf_token %}
                     <div id="form-content"> {{ form.as_p }}</div>
-                    <input type="submit" id="register-btn" value="Register" class="btn-reservation">
+                    <input type="submit" id="register-btn" value="Register" class="btn-reservation btn-register">
                 </form>
             </div>
         </div>
