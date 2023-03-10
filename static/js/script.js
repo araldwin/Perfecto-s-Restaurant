@@ -112,5 +112,3 @@ var cardElements = document.querySelectorAll('.card');
 if (cardElements.length === 0 && paginationElement !== null) {
   paginationElement.style.display = 'none';
 }
-
-
