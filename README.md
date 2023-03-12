@@ -32,26 +32,23 @@ The purpose of this Portfolio Project #4(Full Stack Project), this is part of me
 
 ## Project
 <hr>
-<br>
+
 
 ### Objective
 <hr>
 Since I was a child, I love to cook and I learned this from my mother, I love to experiment with my dishes to have different flavors that are delicious. the idea of ​​the name Perfecto it is my grandfather's name which I love very much. and I want to build a restaurant one day with a variety of delicious dishes that are famous in different countries. this is my dedication to my grandfather and my dear mother.
-<br>
-<br>
+
 
 ### Site Users Goal
 <hr>
 This restaurant will provide a unique experience and taste to those who love to eat and try different cuisines.
-<br>
-<br>
+
 
 
 ### Site Owners Goal
 <hr>
 The purpose of the site owner is to deliver to users the website where they can eat Global Cuisine such as Japanese, Indian, German, American, and many others in this restaurant.
-<br>
-<br>
+
 
 
 ### Project Management
@@ -61,14 +58,13 @@ I used a project board as instructed in the module tutorial, but I haven't pract
 <hr>
 
 ![Image](static/images/readme/githubprojectboard.png)
-<br>
-<br>
+
 
 [Back to top](#table-of-content)
 
 ## User Experience
 <hr>
-<br>
+
 
 ### Wireframes
 <hr>
@@ -76,8 +72,7 @@ I used a project board as instructed in the module tutorial, but I haven't pract
  - I used balsamiq to create wireframes for my project.
 
    - [View wireframes here](https://balsamiq.cloud/s4lj2vf/pr3c5y)
-<br>
-<br>
+
 
 ### User Stories
 <hr>
@@ -99,8 +94,7 @@ I used a project board as instructed in the module tutorial, but I haven't pract
 - as a Site Admin:
    - I can create, read, update and delete bookings/reservations so that I can manage my restaurant booking system
    - I can prohibit double booking so that our operation is not disturbed and other guests can book.
-<br>
-<br>
+
 
 [Back to top](#table-of-content)
 
@@ -108,8 +102,6 @@ I used a project board as instructed in the module tutorial, but I haven't pract
 <hr>
    
    - This website is divided into two parts, when the User is logged out and when the User is logged in. there is a slight difference here. that when the User is logged out it cannot book a reservation. but when the User is logged in User can book a reservation, view reservation, update, and cancel.
-<br>
-<br>
 
 [Back to top](#table-of-content)
 
@@ -117,20 +109,26 @@ I used a project board as instructed in the module tutorial, but I haven't pract
 <hr>
 
 - In the design of my website I chose an appropriate font-color and font-style that is clear and easy to read by the User.
-<br>
-<br>
 
   - ### Typography
    <hr>
-   - In this project I used only two font-styles. it is the Phudu and the Open sans. I used Phudu mostly for headers and Open sans for paragraphs and so on. I want to use only simple fonts and easy to read by the User.
    <details><summary>typography screen shot</summary>
       <p> <img src="static/images/readme/typography.png"></p>
       </details>
-   <br>
-   <br>
+      In this project I used only two font-styles. it is the Phudu and the Open sans. I used Phudu mostly for headers and Open sans for paragraphs and so on. I want to use only simple fonts and easy to read by the User.
+   
  
    - ### Color scheme
    <hr>
+   <details><summary>color scheme screen shot</summary>
+      <p> <img src="static/images/readme/perfectos-colorscheme.png"></p>
+      </details>
+      In this Perfecto's restaurant project I used #fffff, #0c0b09, #fea116 for the general font-color of the page and #d9ba85 for the hover links. i used #000000 for the background color of the spinner. I also used an rgb color like rgb(0, 0, 0) which is linear-gradient and transparent for the background of the navbar so that it looks nice and doesn't get in the way of the page when it is scrolled down. For the buttons I used the color #fea116, #ffb639 and #ffffff to match the color of my logo and the backgournd picture and #cda45e for the hover. I used the color #a40000 for validation in the log-in modal and registration-modal.
+
+[Back to top](#table-of-content)
+
+
+
 
 
 
