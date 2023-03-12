@@ -185,11 +185,43 @@ I used a project board as instructed in the module tutorial, but I haven't pract
 
 - Here in the Hero section I used a carousel to display different images as a background so that it is beautiful and engaging to look at. In the middle of this section Users can see the big title Welcome to Perfecto's to let the Users know that I am glad that the Users visit my webpage and see what is available in our restaurant.
 below it, the Users will also see the ```view our menu``` buttons so that Users can easily see our food offerings.
-   <details><summary>login difference screen shot</summary>
+   <details><summary>hero section screen shot</summary>
          <p> <img src="static/images/readme/hero-section.png"></p>
    </details>
 
 [Back to top](#table-of-content)
+
+
+### About us section
+
+- This is our about us section telling restaurant services we can offer.
+   <details><summary>About us section screen shot</summary>
+         <p> <img src="static/images/readme/about-us-section.png"></p>
+   </details>
+
+[Back to top](#table-of-content)
+
+### Our menu section
+
+- This is our menu section, Users can see here the different food cuisine, the name, the rate, the description and the price. in rating the food at the moment users cannot rate it but it will be added later on in the future features of the project.
+   <details><summary>Our menu section screen shot</summary>
+         <p> <img src="static/images/readme/our-menu-section.png"></p>
+   </details>
+
+[Back to top](#table-of-content)
+
+### Footer section
+
+- In the footer, this is where Users can see the restaurant's social links. this is just a very simple footer
+   <details><summary>Footer screen shot</summary>
+         <p align=center> <img src="static/images/readme/footer-section.png"></p>
+   </details>
+
+[Back to top](#table-of-content)
+
+
+
+
 
    
 
