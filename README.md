@@ -179,20 +179,62 @@ I used a project board as instructed in the module tutorial, but I haven't pract
 
 - Its other difference is that when the Users is logged in, Users can make a reservation and view his reservation, update and cancel the reservation. and when the Users is logged out, the Users does not have access to view and make a reservation and see reservation... except for this Users can see the food menu to choose what the Users wants to eat before booking.
 
-[Back to top](#table-of-content)
+### Login
+
+- I used a modal on my login page so it looks good and has an engaging and stylish design. The Restaurant Logo can be seen here and Users must login using their registered username and password.
+   <details><summary>Login modal screen shot</summary>
+         <p> <img src="static/images/readme/login-modal.png"></p>
+         <hr>
+         <p align="center"> <img src="static/images/readme/login-mobile-modal.png"><br>Mobile view (320 x 480)</p>
+   </details>
+
+### Register
+
+- I also used it on my registration page a modal to make it look nice and engaging.
+   <details><summary>Register modal screen shot</summary>
+         <p> <img src="static/images/readme/register-modal.png"></p>
+         <hr>
+         <p align="center"> <img src="static/images/readme/register-mobile-modal.png"><br>Mobile view (390 x 844)</p>
+   </details>
+
+### Make a reservation
+
+- In this page, I just made a simple and old style page because I have very little time to do my project due to my full time job. I just used a background to make it look nice.
+   <details><summary>Make a reservation screen shot</summary>
+         <p> <img src="static/images/readme/make-a-reservation-page.png"></p>
+         <hr>
+         <p align="center"> <img src="static/images/readme/make-a-reservation-mobile-page.png"><br>Mobile view (390 x 844)</p>
+   </details>
+
+### Reservation list
+
+- Similar to the make a reservation page it is simple and old style. Users can see what they have booked here. but there is also a difference here in the feature when there is no book and when it is my book. see the difference in the screen shot below.
+
+*no reservation listed*
+   <details><summary>No reservation screen shot</summary>
+         <p> <img src="static/images/readme/reservation-list-empty-page.png"></p>
+         <hr>
+         <p align="center"> <img src="static/images/readme/reservation-list-empty-mobile-page.png"><br>Mobile view (390 x 844)</p>
+   </details>
+
+*with reservation listed*
+   <details><summary>With reservation screen shot</summary>
+         <p> <img src="static/images/readme/reservation-list-page.png"></p>
+         <hr>
+         <p align="center"> <img src="static/images/readme/reservation-list-mobile-page.png"><br>Mobile view (390 x 844)</p>
+   </details>
+
+
 
 ### Hero section
 
 - Here in the Hero section I used a carousel to display different images as a background so that it is beautiful and engaging to look at. In the middle of this section Users can see the big title Welcome to Perfecto's to let the Users know that I am glad that the Users visit my webpage and see what is available in our restaurant.
 below it, the Users will also see the ```view our menu``` buttons so that Users can easily see our food offerings.
-   <details><summary>hero section screen shot</summary>
+   <details><summary>Hero section screen shot</summary>
          <p> <img src="static/images/readme/hero-section.png"></p>
          <hr>
-         <p align="center"> <img src="static/images/readme/hero-mobile-section.png"></p>
+         <p align="center"> <img src="static/images/readme/hero-mobile-section.png"><br>Mobile view (320 x 480)</p>
    </details>
-
-[Back to top](#table-of-content)
-
 
 ### About us section
 
@@ -200,10 +242,8 @@ below it, the Users will also see the ```view our menu``` buttons so that Users 
    <details><summary>About us section screen shot</summary>
          <p> <img src="static/images/readme/about-us-section.png"></p>
          <hr>
-         <p align="center"> <img src="static/images/readme/about-us-mobile-section.png"></p>
+         <p align="center"> <img src="static/images/readme/about-us-mobile-section.png"><br>Mobile view (320 x 480)</p>
    </details>
-
-[Back to top](#table-of-content)
 
 ### Our menu section
 
@@ -211,10 +251,8 @@ below it, the Users will also see the ```view our menu``` buttons so that Users 
    <details><summary>Our menu section screen shot</summary>
          <p> <img src="static/images/readme/our-menu-section.png"></p>
          <hr>
-         <p align="center"> <img src="static/images/readme/our-menu-mobile-section.png"></p>
+         <p align="center"> <img src="static/images/readme/our-menu-mobile-section.png"><br>Mobile view (320 x 480)</p>
    </details>
-
-[Back to top](#table-of-content)
 
 ### Footer section
 
@@ -222,7 +260,7 @@ below it, the Users will also see the ```view our menu``` buttons so that Users 
    <details><summary>Footer screen shot</summary>
          <p align="center"> <img src="static/images/readme/footer-section.png"></p>
          <hr>
-         <p align="center"> <img src="static/images/readme/footer-mobile-section.png"></p>
+         <p align="center"> <img src="static/images/readme/footer-mobile-section.png"><br>Mobile view (320 x 480)</p>
    </details>
 
 [Back to top](#table-of-content)
