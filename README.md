@@ -170,7 +170,7 @@ I used a project board as instructed in the module tutorial, but I haven't pract
          </p>
    </details>
 
-*what feature differences*
+*feature differences*
 -  The feature difference is the image of **logged out** and **logged in** views, there is not much difference in its appearance except for LOGIN | REGISTER and BOOK A RERVATION on click. When the Users is logged in, this is what the Users will see that is different.
    <details><summary>login difference screen shot</summary>
          <p align="center"> <img src="static/images/readme/login-diff.png"></p>
@@ -208,23 +208,36 @@ I used a project board as instructed in the module tutorial, but I haven't pract
 
 ### Reservation list
 
-- Similar to the make a reservation page it is simple and old style. Users can see what they have booked here. but there is also a difference here in the feature when there is no book and when it is my book. see the difference in the screen shot below.
-
-*no reservation listed*
-   <details><summary>No reservation screen shot</summary>
+- Similar to the make a reservation page it is simple and old style. Users can see what they have booked here. And on this page Users can update or cancel their bookings. But there is also a difference here in the feature when there is no book and when it is my book. See the difference in the screen shot below.
+   <details><summary>No reservation listed screen shot</summary>
          <p> <img src="static/images/readme/reservation-list-empty-page.png"></p>
          <hr>
          <p align="center"> <img src="static/images/readme/reservation-list-empty-mobile-page.png"><br>Mobile view (390 x 844)</p>
    </details>
 
-*with reservation listed*
-   <details><summary>With reservation screen shot</summary>
+   <details><summary>With reservation listed screen shot</summary>
          <p> <img src="static/images/readme/reservation-list-page.png"></p>
          <hr>
          <p align="center"> <img src="static/images/readme/reservation-list-mobile-page.png"><br>Mobile view (390 x 844)</p>
    </details>
 
+### Update reservation
 
+- This page is just like make a reservation the look is simple old style. I could make it more beautiful and unique design but I really don't have enough time because of my work and responsibilities at home.
+   <details><summary>Update reservation screen shot</summary>
+         <p> <img src="static/images/readme/update-reservation-page.png"></p>
+         <hr>
+         <p align="center"> <img src="static/images/readme/update-reservation-mobile-page.png"><br>Mobile view (390 x 844)</p>
+   </details>
+
+### Cancel reservation
+
+- Here on the cancel reservation, I used a modal to view it interactively. I didn't change the style from bootsrap.
+   <details><summary>Cancel reservation listed screen shot</summary>
+         <p> <img src="static/images/readme/cancel-reservation.png"></p>
+         <hr>
+         <p align="center"> <img src="static/images/readme/cancel-reservation-mobile.png"><br>Mobile view (390 x 844)</p>
+   </details>
 
 ### Hero section
 
