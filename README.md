@@ -127,12 +127,12 @@ I used a project board as instructed in the module tutorial, but I haven't pract
 
 [Back to top](#table-of-content)
 
-### Features
+## Features
 - ### A Simple, Easy to Remember URL:[Perfecto's Restaurant](https://myrestaurant2023.herokuapp.com/)
 <hr>
 
 ### Navigation bar
-- Here in the navigation bar there is a slight difference when the User is logged in or logged out.
+- Here in the navigation bar there is a slight difference when the User is logged in or logged out. we can also see here the customize logo of Perfecto's Restaurant ang hom, about, menu, and book a reservation. 
 
 *when logged out*
 -  Here in screen shot of the navbar logout this is what we can see when a User is logged out, the images also show the appearance when desktop and mobile view.
@@ -171,13 +171,25 @@ I used a project board as instructed in the module tutorial, but I haven't pract
    </details>
 
 *what feature differences*
--  One of the feature difference is the image of logged out and logged in views, there is not much difference in its appearance except for LOGIN | REGISTER. when the users is logged in, this is what the user will see that is different.
+-  The feature difference is the image of **logged out** and **logged in** views, there is not much difference in its appearance except for LOGIN | REGISTER and BOOK A RERVATION on click. When the Users is logged in, this is what the Users will see that is different.
    <details><summary>login difference screen shot</summary>
          <p align="center"> <img src="static/images/readme/login-diff.png"></p>
+         <p align="center"> <img src="static/images/readme/login-diff1.png"></p>
    </details>
 
-- Its other difference is that when the Users is logged in, Users can make a reservation and view his reservation, update and cancel the reservation. and when the Users is logged out, the Users does not have access to make a reservation and see his/her reservation... except for this Users can see the food menu to choose what the Users wants to eat before booking.
-   
+- Its other difference is that when the Users is logged in, Users can make a reservation and view his reservation, update and cancel the reservation. and when the Users is logged out, the Users does not have access to view and make a reservation and see reservation... except for this Users can see the food menu to choose what the Users wants to eat before booking.
+
+[Back to top](#table-of-content)
+
+### Hero section
+
+- Here in the Hero section I used a carousel to display different images as a background so that it is beautiful and engaging to look at. In the middle of this section Users can see the big title Welcome to Perfecto's to let the Users know that I am glad that the Users visit my webpage and see what is available in our restaurant.
+below it, the Users will also see the ```view our menu``` buttons so that Users can easily see our food offerings.
+   <details><summary>login difference screen shot</summary>
+         <p> <img src="static/images/readme/hero-section.png"></p>
+   </details>
+
+[Back to top](#table-of-content)
 
    
 
