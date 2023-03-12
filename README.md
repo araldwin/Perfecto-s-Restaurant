@@ -187,6 +187,8 @@ I used a project board as instructed in the module tutorial, but I haven't pract
 below it, the Users will also see the ```view our menu``` buttons so that Users can easily see our food offerings.
    <details><summary>hero section screen shot</summary>
          <p> <img src="static/images/readme/hero-section.png"></p>
+         <hr>
+         <p align="center"> <img src="static/images/readme/hero-mobile-section.png"></p>
    </details>
 
 [Back to top](#table-of-content)
@@ -197,6 +199,8 @@ below it, the Users will also see the ```view our menu``` buttons so that Users 
 - This is our about us section telling restaurant services we can offer.
    <details><summary>About us section screen shot</summary>
          <p> <img src="static/images/readme/about-us-section.png"></p>
+         <hr>
+         <p align="center"> <img src="static/images/readme/about-us-mobile-section.png"></p>
    </details>
 
 [Back to top](#table-of-content)
@@ -206,6 +210,8 @@ below it, the Users will also see the ```view our menu``` buttons so that Users 
 - This is our menu section, Users can see here the different food cuisine, the name, the rate, the description and the price. in rating the food at the moment users cannot rate it but it will be added later on in the future features of the project.
    <details><summary>Our menu section screen shot</summary>
          <p> <img src="static/images/readme/our-menu-section.png"></p>
+         <hr>
+         <p align="center"> <img src="static/images/readme/our-menu-mobile-section.png"></p>
    </details>
 
 [Back to top](#table-of-content)
@@ -214,10 +220,14 @@ below it, the Users will also see the ```view our menu``` buttons so that Users 
 
 - In the footer, this is where Users can see the restaurant's social links. this is just a very simple footer
    <details><summary>Footer screen shot</summary>
-         <p align=center> <img src="static/images/readme/footer-section.png"></p>
+         <p align="center"> <img src="static/images/readme/footer-section.png"></p>
+         <hr>
+         <p align="center"> <img src="static/images/readme/footer-mobile-section.png"></p>
    </details>
 
 [Back to top](#table-of-content)
+
+
 
 
 
