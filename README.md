@@ -18,8 +18,8 @@ The purpose of this Portfolio Project #4(Full Stack Project), this is part of me
    - 2.2 [User Stories](#user-stories)
    - 2.3 [Site Stracture](#site-structure)
    - 2.4 [Design](#design)
-      - 2.4.1 [Color scheme](#color-scheme)
-      - 2.4.2 [Typography](#typography)
+      - 2.4.1 [Typography](#typography)
+      - 2.4.2 [Color scheme](#color-scheme)
 3. [Features](#features)
 5. [Flowchart](#flowchart)
 6. [Technology](#technology)
@@ -126,6 +126,61 @@ I used a project board as instructed in the module tutorial, but I haven't pract
       In this Perfecto's restaurant project I used #fffff, #0c0b09, #fea116 for the general font-color of the page and #d9ba85 for the hover links. i used #000000 for the background color of the spinner. I also used an rgb color like rgb(0, 0, 0) which is linear-gradient and transparent for the background of the navbar so that it looks nice and doesn't get in the way of the page when it is scrolled down. For the buttons I used the color #fea116, #ffb639 and #ffffff to match the color of my logo and the backgournd picture and #cda45e for the hover. I used the color #a40000 for validation in the log-in modal and registration-modal.
 
 [Back to top](#table-of-content)
+
+### Features
+- ### A Simple, Easy to Remember URL:[Perfecto's Restaurant](https://myrestaurant2023.herokuapp.com/)
+<hr>
+
+### Navigation bar
+- Here in the navigation bar there is a slight difference when the User is logged in or logged out.
+
+*when logged out*
+-  Here in screen shot of the navbar logout this is what we can see when a User is logged out, the images also show the appearance when desktop and mobile view.
+   <details><summary>navbar logout screen shot</summary>
+         <p align="center"> <img src="static/images/readme/navbar-logout.png">
+         Desktop view
+         </p>
+         <hr>
+         <p align="center"> <img src="static/images/readme/navbar-mobile-logout.png">
+         <br>
+         Mobile view
+         </p>
+         <hr>
+         <p align="center"> <img src="static/images/readme/navbar-mobile-logout1.png">
+         <br>
+         Burger Menu
+         </p>
+   </details>
+
+*when logged in*
+-  Here in screen shot of the navbar login this is what we can see when a Users is logged in, the images also show the appearance when desktop and mobile view.
+   <details><summary>navbar login screen shot</summary>
+         <p align="center"> <img src="static/images/readme/navbar-login.png">
+         Desktop view
+         </p>
+         <hr>
+         <p align="center"> <img src="static/images/readme/navbar-mobile-login.png">
+         <br>
+         Mobile view
+         </p>
+         <hr>
+         <p align="center"> <img src="static/images/readme/navbar-mobile-login1.png">
+         <br>
+         Burger Menu
+         </p>
+   </details>
+
+*what feature differences*
+-  One of the feature difference is the image of logged out and logged in views, there is not much difference in its appearance except for LOGIN | REGISTER. when the users is logged in, this is what the user will see that is different.
+   <details><summary>login difference screen shot</summary>
+         <p align="center"> <img src="static/images/readme/login-diff.png"></p>
+   </details>
+
+- Its other difference is that when the Users is logged in, Users can make a reservation and view his reservation, update and cancel the reservation. and when the Users is logged out, the Users does not have access to make a reservation and see his/her reservation... except for this Users can see the food menu to choose what the Users wants to eat before booking.
+   
+
+   
+
 
 
 
