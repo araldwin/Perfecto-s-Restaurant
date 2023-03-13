@@ -21,8 +21,10 @@ The purpose of this Portfolio Project #4(Full Stack Project), this is part of me
       - 2.4.1 [Typography](#typography)
       - 2.4.2 [Color scheme](#color-scheme)
 3. [Features](#features)
-5. [Flowchart](#flowchart)
-6. [Technology](#technology)
+4. [Technologies Used](#technologies-used)
+    - 4.1 [Languages]
+    - 4.2 [Frameworks & Software]
+    - 4.3 [Libraries]
 7. [Testing](#testing)
    - 7.1 Code Validation
    - 7.2 Fixed bugs
@@ -276,8 +278,66 @@ below it, the Users will also see the ```view our menu``` buttons so that Users 
          <p align="center"> <img src="static/images/readme/footer-mobile-section.png"><br>Mobile view (320 x 480)</p>
    </details>
 
+## Future features
+
+   1. In the login modal page, add a remember me box and forgot password?. Where the Users does not need to type again and again on his/her login page and it will login automatically. And in case the Users forgets his/her password the Users can restore it or create a new passwork to make his account more secure.
+   2. In the Registration modal it is also necessary to add that when the Users register there is a confirmation email that will be sent to the Users email address to verify the Users who registered.
+   3. In our menu section add a drinks menu the Users are able to rate the food by their own.
+   4. Add Contact Us with map location of the restaurant section.
+   5. Add more style to Make a reservation and update a reservation page.
+   6. A photo gallery section.
+   7. A comment ang rate us section.
+
 [Back to top](#table-of-content)
 
+## Technologies Used
+
+### Langauges
+   - [Python](https://www.python.org/)
+   - [JavaScript](https://www.javascript.com/)
+   - [HTML5]()
+   - [CSS3]()
+   - [ElephantSQL](https://www.elephantsql.com/)
+
+### Frameworks, Toolkit & Software
+   - [Am I Responsive](https://ui.dev/amiresponsive) - online tool used to create mockup to present responsive design of this project.
+   - [Balsamiq](https://balsamiq.com) - design tool used for creating wireframes.
+   - [Bootsrap 5](https://getbootstrap.com/) - a CSS framework and toolkit used for developing responsive and mobile-first websites.
+   - [Canva](https://canva.com) - used to create the Perfecto's Restaurant logo.
+   - [Chrome DevTools]() - used to inspect the rendered HTML (DOM) and network activity of my pages. Used to troubleshoot ad serving issues.
+   - [Cloudinary](https://cloudinary.com) - a service that hosts image files in the project.
+   - [Coolors.co](https://coolors.co) - used to create color palette.
+   - [CSS Valitadtion](https://jigsaw.w3.org/css-validator/) - used to validate CSS code.
+   - [Django](https://www.djangoproject.com/) - Python web framework used for this project.
+   - [Fontawesome](https://fontawesome.com/icons/) - where i import font icons for this project.
+   - [Favicon.io](https://favicon.io/favicon-generator/) - generator i use to create favicon for this project.
+   - [Google Fonts](https://fonts.google.com) - where i import and use font-style for this project.
+   - [Git](http://gitscm.com) - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+   - [Gitpod](https://gitpod.io) - IDE used to code the project.
+   - [GitHub](https://github.com) - GitHub is used to store the project's code after being pushed from Git.
+   - [Heroku](https://heroku.com) - a container-based cloud Platform used to deploy, manage, and scale apps.
+   - [HTML Validation](https://validator.w3.org/) -used to validate HTML code.
+   - [JSHint Validation](https://jshint.com/)  - used to validate JavaScript code.
+   - [Lighthouse]() - used to test site perfomance
+   - [Visual Studio Code for Windows]() - IDE used to code the project.
+   - [Unsplash](https://www.unsplash.com/) - for the webpage main background image.
+   - [Windows Snipping Tool]() - used to save the screen shot.
+  
+### Libraries
+
+   - [asgiref==3.6.0](https://pypi.org/project/asgiref/) - ASGI is a standard for Python asynchronous web apps and servers to communicate with each other, and positioned as an asynchronous successor to WSGI. You can read more at https://asgi.readthedocs.io/en/latest/.
+   - [cloudinary==1.32.0](https://pypi.org/project/cloudinary/) - The Cloudinary Python SDK allows you to quickly and easily integrate your application with Cloudinary. Effortlessly optimize, transform, upload and manage your cloud's assets.
+   - [coverage==7.2.1](https://pypi.org/project/coverage/) - Coverage.py measures code coverage, typically during test execution. It uses the code analysis tools and tracing hooks provided in the Python standard library to determine which lines are executable, and which have been executed.
+   - [dj-database-url==0.5.0](https://pypi.org/project/dj-database-url/0.5.0/) - This simple Django utility allows you to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application.
+   - [dj3-cloudinary-storage==0.0.6](https://pypi.org/project/dj3-cloudinary-storage/) - Django Cloudinary Storage is a Django package that facilitates integration with Cloudinary by implementing Django Storage API.
+   - [Django==3.2.18](https://www.djangoproject.com/download/) - Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel. 
+   - [gunicorn==20.1.0](https://pypi.org/project/gunicorn/) - Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX. It’s a pre-fork worker model ported from Ruby’s Unicorn project. The Gunicorn server is broadly compatible with various web frameworks, simply implemented, light on server resource usage, and fairly speedy.
+   - [Pillow==9.4.0](https://pypi.org/project/Pillow/) - Pillow is the friendly PIL fork by Alex Clark and Contributors. PIL is the Python Imaging Library by Fredrik Lundh and Contributors
+   - [psycopg2==2.9.5](https://pypi.org/project/psycopg2/) - Psycopg is the most popular PostgreSQL database adapter for the Python programming language.
+   - [pytz==2022.7.1](https://pypi.org/project/pytz/) - pytz brings the Olson tz database into Python. This library allows accurate and cross platform timezone calculations using Python 2.4 or higher.
+   - [sqlparse==0.4.3](https://pypi.org/project/sqlparse/) - sqlparse is a non-validating SQL parser for Python. It provides support for parsing, splitting and formatting SQL statements.
+
+[Back to top](#table-of-content)
 
 
 
