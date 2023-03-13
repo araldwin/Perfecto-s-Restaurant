@@ -359,59 +359,158 @@ This project is deployed on [Heroku](https://heroku.com), these are the steps:
    2. Find in the middle of the page `Use this template` and click it, after clicking you will see the `Create a new repository` link. Ande select it.
    3. Enter your repository name and click `create a repository from template` at the bottom of the page.
    4. After creating a new repository. press the green `gitpod` button. to open the Gitpod editor.
-   5. In IDE(integrated development environment)  we need to install the following libraries for this project.
+   5. In IDE(integrated development environment)  you need to install the following libraries for this project.
       - ```pip3 install 'django<4' gunicorn```
       - ```pip3 install dj_database_url==0.5.0 psycopg2```
       - ```pip install dj3-cloudinary-storage```
       - ```pip install Pillow```
-   6. After installing the libraries. We need to create a requirements.txt file.
+   6. After installing the libraries. you need to create a requirements.txt file.
       - ```pip3 freeze --local > requirements.txt```
       
-   7. After installing our necessary libraries, now we can start and create a project . to create a project type this:
+   7. After installing your necessary libraries, now you can start and create a project . to create a project type this:
       - ```django-admin startproject name_of_project```
    8. Next to this is the creation of apps.
       - ```python3 manage.py startapp name_of_app```
-   9. Remember that for each app we need to put it in the settings of our project inside the INSTALLED_APPS list.
+   9. Remember that for each app you need to put it in the settings of your project inside the INSTALLED_APPS list.
       - in my project i made two apps it is **book** and **food**.
          <details><summary>installed apps screen shot</summary>
          <p><img src="static/images/readme/installed-apps.png"></p>
          </details>
-   10. The next thing we need to do is to migrate the changes to the database. We also need to migrate every time we have new apps or there is a changes in our apps models.
+   10. The next thing you need to do is to migrate the changes to the database. You also need to migrate every time you have new apps or there is a changes in your app models.
       - ```python3 manage.py migrate```
-   11. Now we can run our project using ```python3 manage.py runserver```.
-   12. Next step is to create our [Heroku](https://heroku.com) app. Log into [Heroku](https://heroku.com) and go to the dashboard.
-         <details><summary>Creating our Heroku app process</summary>
+   11. Now you can run your project using ```python3 manage.py runserver```.
+   12. Next step is to **_create your [Heroku](https://heroku.com) app_**. Log into [Heroku](https://heroku.com) and go to the dashboard.
+         <details><summary>Creating Heroku app process</summary>
+         <br>
          <p>1. Click "New"</p>
          <img src="static/images/readme/Screenshot 2023-03-13 153504.png">
+         <br>
          <p>2. Click "Create new app"</p>
          <img src="static/images/readme/Screenshot 2023-03-13 153724.png">
+         <br>
          <p>3. Give your app a name and select the region closest to you. When you're done, click "Create app" to confirm. Heroku app names must be unique. If yours isn't, Heroku will give you a warning</p>
          <img src="static/images/readme/Screenshot 2023-03-13 153840.png">
          </details>
-   13. Next step is to create our database. These steps will create a new PostgreSQL database instance for use with your project.
-      - The database provided by Django is only accessible within Gitpod and is not suitable for a production environment. Your deployed project on Heroku will not be able to access it. So, you need to create a new database that can be accessed by Heroku.
+         <hr>
+   13. Next step is to **_[create your database](https://www.elephantsql.com/)_**. These steps will create a new PostgreSQL database instance for use with your project.
+       The database provided by Django is only accessible within Gitpod and is not suitable for a production environment. Your deployed project on Heroku will not be able to access it. So, you need to create a new database that can be accessed by Heroku.
         > If you don't have an ElephantSQL.com account yet, the [steps to create one are here](https://www.elephantsql.com/).
         <details><summary>Create a database process</summary>
-         <p>1. Log in to [ElephantSQL.com](https://www.elephantsql.com/) to access your dashboard</p>
+         <br> 
+         <p>1. Log in to your ElephantSQL.com to access your dashboard</p>
          <img src="static/images/readme/Screenshot 2023-03-13 160953.png">
-         <p>2. Click "Create new app"</p>
+         <br>
+         <p>2. Click “Create New Instance”</p>
          <img src="static/images/readme/Screenshot 2023-03-13 160244.png">
-         <p>3. Set up you plan. Give your plan a Name (this is commonly the name of the project). Select the Tiny Turtle (Free) plan. You can leave the Tags field blank<p>
+         <br>
+         <p>3. Set up your plan. Give your plan a Name (this is commonly the name of the project). Select the Tiny Turtle (Free) plan. You can leave the Tags field blank<p>
          <img src="static/images/readme/Screenshot 2023-03-13 160411.png">
+         <br>
          <p>4. Select "Select Region"</p>
          <img src="static/images/readme/Screenshot 2023-03-13 160450.png">
+         <br>
          <p>5. Select a data center near you</p>
          <img src="static/images/readme/Screenshot 2023-03-13 160643.png">
+         <br>
          <p>6. Then click “Review”</p>
          <img src="static/images/readme/Screenshot 2023-03-13 160726.png">
+         <br>
          <p>7. Check your details are correct and then click “Create instance” </p>
          <img src="static/images/readme/Screenshot 2023-03-13 160914.png">
+         <br>
          <p>8. Return to the ElephantSQL dashboard and click on the database instance name for this project</p>
          <img src="static/images/readme/Screenshot 2023-03-13 160209.png">
+         <br>
          <p>9. In the URL section, click the copy icon to copy the database URL</p>
          <img src="static/images/readme/Screenshot 2023-03-13 161050.png">
          </details>
+         <hr>
+   14. Next step is you need to **_create an env.py file_** to keep things secret.There are a variety of variables that we don’t want to publish in your repository. In fact if you do, you may get an email from GitHub warning our about an exposed secret. To ensure your application works properly when deployed, you need a way to provide these variables without exposing them to the public.
+         <details><summary>Create an env.py file process</summary>
+         <br> 
+         <p>1. In your project workspace, create a file called env.py. </p>
+         <img src="static/images/readme/Screenshot 2023-03-13 164003.png">
+         <br>
+         <p>2. Add the following line of code.</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 164525.png">
+         </details>
+   - In the code above set **environment variables** then set a **DATABASE_URL** variable, with the value you just copied from ElephantSQL as follows 
+      > Replace **copiedURL** with the relevant string from ElephantSQL.
+   - As this is a Django application it has a **SECRET_KEY**, which it uses to encrypt session cookies. The secret key can be whatever you like.
+      > Replace **secretKey** with your key.
+   - Make sure you **save** the file.
+   15. Next step is you need to make some **_changes to your settings.py file_**.
+         <details><summary>Modifying settings.py process</summary>
+         <br> 
+         <p>1. Now you have created an env.py file, you need to make your Django project aware of it. Open up your settings.py file and add the following code below your Path import</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 172638.png">
+         <br>
+         <p>The if statement here acts as a little protection for the application in case you try to run it without an env.py file present. You will use the other import in a moment.</p>
+         <br>
+         <p>2. A little further down, remove the insecure secret key provided by Django. Instead, we will reference the variable in the env.py file, so change your SECRET_KEY variable to the following:</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 172744.png">
+         <br>
+         <p>3. Now that is taken care of, we need to hook up your database. We are going to use the dj_database_url import for this, so scroll down in your settings file to the database section. Comment out the original DATABASES variable and add the code below, as shown</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 172835.png">
+         <br>
+         <p>4. With those changes in place, make sure to save your file. Your application will now connect to your remote database hosted on ElephantSQL. Run the migration command in your terminal to migrate your database structure to the newly-connected ElephantSQL database.</p>
+         </details>
+         <hr>
+   16. Next step is to connect your app to [Cloudinary](https://cloudinary.com/).
+         > if you don't have account [Cloudinary](https://cloudinary.com/), you may click the link to create an account.
+         <details><summary>Connecting Cloudinary app process</summary>
+         <br> 
+         <p>1. Go to your Cloudinary dashboard, go to more info and click copy API Environment variable, you will use this to connect our app to Cloudinary.</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 181707.png">
+         <br>
+         <p>2. Now go back to env.py file and add another line at the bottom. Set the CLOUDINARY_URL, and then paste in the value that you copied. see image below:</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 182805.png">
+         <br>
+         <p>3. Then proceed to your project settings and add "cloudinary_storage" and "cloudinary" apps in INSTALLED_APPS like the image below: </p>
+         <img src="static/images/readme/installed-apps.png">
+         <br>
+         <p>4. You need to store your media and static files down near the end of your settings.py file and add few lines, see image below:</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 184531.png">
+         <br>
+         <p>5. Back up to the top of settings.py and under the base directory add in the template directory.</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 185011.png">
+         <br>
+         <p>6. Then scroll down to midway in settings.py file and change the DIRS key, like the image below.</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 185335.png">
+         </details>
+         <hr>
+   17. Now you need to connect your [Heroku](https://heroku.com) app to your database.
+         <details><summary>Connecting Heroku app to database process</summary>
+         <br> 
+         <p>1. Go back to the Heroku dashboard open the Settings tab.</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 174134.png">
+         <br>
+         <p>2. Go to Reveal Config Vars.</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 174506.png">
+         <br>
+         <p>3. Add 5 config vars: DATABASE_URL, SECRET_KEY, CLOUDINARY_URL, PORT, DISABLE_COLLECSTATIC.</p>
+         <p>DATABASE_URL, and for the value, copy in your database URL from ElephantSQL, no need to add quotation marks.</p>
+         <p>CLOUDINARY_URL, and for the value, copy in your API Environment variable URL, remove the "CLOUDINARY_URL=" written in from of the url.</p>
+         <p>SECRET_KEY containing your secret key.</p>
+         <p>DISABLE_COLLECSTATIC, and for the value is set to 1, don't forget to remove this when it comes to deplyoment of full project.</p>
+         <p>PORT, with the value of 8000.</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 174858.png">
+         <br>
+         <p>4. After that add Heroku host name into "ALLOWED_HOSTS" in your settings.py file, and this is your Heroku app name followed by herokuapp.com and add `localhost` too, to run locally. see the image below</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 190225.png">
+         </details>
+         <hr>
+   18. Now you can just create three directories, the directories you need are going to be media, static and template folders. and you can create these on the top level next to your manage.py file. 
 
+   19. You also need to create procfile, Heroku needs this so that it knows hot to run the project. remember the capital P on Procfile. procfile is short for process file. you need to add your project name in here in my case it is "restaurant".
+         <details><summary>Creating Procfile</summary>
+         <img src="static/images/readme/Screenshot 2023-03-13 191210.png">
+         </details>
+         <hr>
+   20. Now that's all done let's try deployment so save your files, add commit and push to our repository. And we're going to use Github as our deployment method here.
+   21. So go back to your Heroku dashboard and click on the deploy tab. And click on Github for deployment method, you might need to connect your Github account.
+   22. Then search the name of your repository, then scroll down to the bottom of the page and click on deploy branch.
+   23. So when it says that the app has been deployed successfully. Click on [open app](https://myrestaurant2023.herokuapp.com/) to view it.
       
 
 
