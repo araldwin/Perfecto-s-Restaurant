@@ -21,10 +21,21 @@ The purpose of this Portfolio Project #4(Full Stack Project), this is part of me
       - 2.4.1 [Typography](#typography)
       - 2.4.2 [Color scheme](#color-scheme)
 3. [Features](#features)
-4. [Technologies Used](#technologies-used)
-    - 4.1 [Languages]
-    - 4.2 [Frameworks & Software]
-    - 4.3 [Libraries]
+   - 3.1 [Navigation bar](#navigation-bar)
+   - 3.2 [Login](#login)
+   - 3.3 [Register](#register)
+   - 3.4 [Make a reservation](#make-a-reservation)
+   - 3.5 [Reservation list](#reservation-list)
+   - 3.6 [Update reservation](#update-reservation)
+   - 3.7 [Cancel reservation](#cancel-reservation)
+   - 3.8 [Hero section](#hero-section)
+   - 3.9 [About section](#about-section)
+   - 3.10 [Our menu section](#our-menu-section)
+   - 3.11 [Footer](#footer)
+ 4. [Technologies Used](#technologies-used)
+    - 4.1 [Languages](#langauges)
+    - 4.2 [Frameworks & Software](#frameworks-&-software)
+    - 4.3 [Libraries](#libraries)
 7. [Testing](#testing)
    - 7.1 Code Validation
    - 7.2 Fixed bugs
@@ -319,7 +330,7 @@ below it, the Users will also see the ```view our menu``` buttons so that Users 
    - [HTML Validation](https://validator.w3.org/) -used to validate HTML code.
    - [JSHint Validation](https://jshint.com/)  - used to validate JavaScript code.
    - [Lighthouse]() - used to test site perfomance
-   - [Visual Studio Code for Windows]() - IDE used to code the project.
+   - [Visual Studio Code for Windows](https://code.visualstudio.com/) - IDE used to code the project.
    - [Unsplash](https://www.unsplash.com/) - for the webpage main background image.
    - [Windows Snipping Tool]() - used to save the screen shot.
   
@@ -339,8 +350,69 @@ below it, the Users will also see the ```view our menu``` buttons so that Users 
 
 [Back to top](#table-of-content)
 
+## Deployment
 
+### Deplyoment to Heroku
 
+This project is deployed on [Heroku](https://heroku.com), these are the steps:
+   1. First create a new Github repository using the [Code institute template](https://github.com/Code-Institute-Org/gitpod-full-template).
+   2. Find in the middle of the page `Use this template` and click it, after clicking you will see the `Create a new repository` link. Ande select it.
+   3. Enter your repository name and click `create a repository from template` at the bottom of the page.
+   4. After creating a new repository. press the green `gitpod` button. to open the Gitpod editor.
+   5. In IDE(integrated development environment)  we need to install the following libraries for this project.
+      - ```pip3 install 'django<4' gunicorn```
+      - ```pip3 install dj_database_url==0.5.0 psycopg2```
+      - ```pip install dj3-cloudinary-storage```
+      - ```pip install Pillow```
+   6. After installing the libraries. We need to create a requirements.txt file.
+      - ```pip3 freeze --local > requirements.txt```
+      
+   7. After installing our necessary libraries, now we can start and create a project . to create a project type this:
+      - ```django-admin startproject name_of_project```
+   8. Next to this is the creation of apps.
+      - ```python3 manage.py startapp name_of_app```
+   9. Remember that for each app we need to put it in the settings of our project inside the INSTALLED_APPS list.
+      - in my project i made two apps it is **book** and **food**.
+         <details><summary>installed apps screen shot</summary>
+         <p><img src="static/images/readme/installed-apps.png"></p>
+         </details>
+   10. The next thing we need to do is to migrate the changes to the database. We also need to migrate every time we have new apps or there is a changes in our apps models.
+      - ```python3 manage.py migrate```
+   11. Now we can run our project using ```python3 manage.py runserver```.
+   12. Next step is to create our [Heroku](https://heroku.com) app. Log into [Heroku](https://heroku.com) and go to the dashboard.
+         <details><summary>Creating our Heroku app process</summary>
+         <p>1. Click "New"</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 153504.png">
+         <p>2. Click "Create new app"</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 153724.png">
+         <p>3. Give your app a name and select the region closest to you. When you're done, click "Create app" to confirm. Heroku app names must be unique. If yours isn't, Heroku will give you a warning</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 153840.png">
+         </details>
+   13. Next step is to create our database. These steps will create a new PostgreSQL database instance for use with your project.
+      - The database provided by Django is only accessible within Gitpod and is not suitable for a production environment. Your deployed project on Heroku will not be able to access it. So, you need to create a new database that can be accessed by Heroku.
+        > If you don't have an ElephantSQL.com account yet, the [steps to create one are here](https://www.elephantsql.com/).
+        <details><summary>Create a database process</summary>
+         <p>1. Log in to [ElephantSQL.com](https://www.elephantsql.com/) to access your dashboard</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 160953.png">
+         <p>2. Click "Create new app"</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 160244.png">
+         <p>3. Set up you plan. Give your plan a Name (this is commonly the name of the project). Select the Tiny Turtle (Free) plan. You can leave the Tags field blank<p>
+         <img src="static/images/readme/Screenshot 2023-03-13 160411.png">
+         <p>4. Select "Select Region"</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 160450.png">
+         <p>5. Select a data center near you</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 160643.png">
+         <p>6. Then click “Review”</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 160726.png">
+         <p>7. Check your details are correct and then click “Create instance” </p>
+         <img src="static/images/readme/Screenshot 2023-03-13 160914.png">
+         <p>8. Return to the ElephantSQL dashboard and click on the database instance name for this project</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 160209.png">
+         <p>9. In the URL section, click the copy icon to copy the database URL</p>
+         <img src="static/images/readme/Screenshot 2023-03-13 161050.png">
+         </details>
+
+      
 
 
 
