@@ -36,12 +36,12 @@ The purpose of this Portfolio Project #4(Full Stack Project), this is part of me
     - 4.1 [Languages](#langauges)
     - 4.2 [Frameworks & Software](#frameworks-&-software)
     - 4.3 [Libraries](#libraries)
-7. [Testing](#testing)
-   - 7.1 Code Validation
-   - 7.2 Fixed bugs
-   - 7.3 Test cases
-8. [Deployment](#deployment)
-9. [Credits](#credits)
+5. [Testing](#testing)
+   - 5.1 Code Validation
+   - 5.2 Fixed bugs
+   - 5.3 Test cases
+6. [Deployment](#deployment)
+7. [Credits](#credits)
 
 ## Project
 <hr>
@@ -350,6 +350,37 @@ below it, the Users will also see the ```view our menu``` buttons so that Users 
 
 [Back to top](#table-of-content)
 
+## Testing
+
+### 5.1 Code Validation
+   - [JS Hint](https://jshint.com/) - used to check JavaScript codes.
+      <details><summary>validation screen shot</summary>
+            <p> <img src="static/images/readme/js_hint.png"></p>    
+      </details>
+      <hr>
+   - [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_input) - used to validate the project CSS codes.
+      <details><summary>validation screen shot</summary>
+            <p> <img src="static/images/readme/css_validation.png"></p>    
+      </details>
+      <hr>
+   - [Nu Html Checker](https://validator.w3.org/nu/#textarea) - used to check the project html codes.
+      <details><summary>validation screen shot</summary>
+            <p> <img src="static/images/readme/html_checker.png"></p>    
+      </details>
+      <hr>
+
+   - [Pylint]() - used to check the project python codes.
+      <details><summary>LightHouse DevTools report screen shot</summary>
+            <p> <img src="static/images/readme/pylint_checker.png"></p>    
+      </details>
+      <hr>
+   
+   - [DevTools lighthouse report]()
+      <details><summary>LightHouse DevTools report screen shot</summary>
+            <p> <img src="static/images/readme/lighthouse.png"></p>    
+      </details>
+      <hr>
+
 ## Deployment
 
 ### Deplyoment to Heroku
@@ -511,7 +542,36 @@ This project is deployed on [Heroku](https://heroku.com), these are the steps:
    21. So go back to your Heroku dashboard and click on the deploy tab. And click on Github for deployment method, you might need to connect your Github account.
    22. Then search the name of your repository, then scroll down to the bottom of the page and click on deploy branch.
    23. So when it says that the app has been deployed successfully. Click on [open app](https://myrestaurant2023.herokuapp.com/) to view it.
-      
+
+   [Back to top](#table-of-content)
+
+## Credits
+
+   - [Hello Django](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2021_T1/courseware/dc049b343a9b474f8d75822c5fda1582/121ef050096f4546a1c74327a9113ea6/) - code institute tutorial videos on how to do testing.
+   - [I think therefore i blog](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2021_T1/courseware/b31493372e764469823578613d11036b/fe4299adcd6743328183aab4e7ec5d13/) - code institute tutorial videos on how to do my project.
+   - [Django Documentaion](https://www.djangoproject.com/) - to help me understand and solve some problems for my project.
+   - [Codemy](https://www.youtube.com/watch?v=HHx3tTQWUx0&list=PLCC34OHNcOtqW9BJmgQPPzUpJ8hl49AGy) - Youtube tutorials i used on how to build my project.
+   - [W3C School](https://www.w3schools.com/django/django_collect_static_files.php) - helps me to solve some bugs and additional knowledge and understanding on my project journey. 
+   - [Stack Overflow](https://stackoverflow.com/) - used to solve bugs, and learn to understand more about what the code does and how it works properly.
+   - [Bootsrap made](https://bootstrapmade.com/) - template ideas to make my front end.
+   - [Real python](https://realpython.com/) - used to understand and solve some problems for my project.
+   - [Google images]() - were i got background photos for my project.
+   - [Technology IT](https://www.youtube.com/watch?v=EI02wQ51GjA&list=PLBTOBXTz1YFZK0moSgoZq93V_AdvrUGSj&index=1) - Youtube tutorials i used on how to build my project.
+   
+   ## Acknowledgements
+
+   - Mr. Rohit to my mentor
+   - Student Support team
+   - Slack community
+   - Code institute
+
+## Disclaimer
+   - Perfecto's Restaurant was created for educational purpose only.
+   
+   [Back to top](#table-of-content)
+   
+
+
 
 
 
