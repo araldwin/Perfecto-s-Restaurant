@@ -34,12 +34,14 @@ The purpose of this Portfolio Project #4(Full Stack Project), this is part of me
    - 3.11 [Footer](#footer)
  4. [Technologies Used](#technologies-used)
     - 4.1 [Languages](#langauges)
-    - 4.2 [Frameworks & Software](#frameworks-&-software)
+    - 4.2 [Frameworks, Toolkit & Software](#frameworks-toolkit-software)
     - 4.3 [Libraries](#libraries)
 5. [Testing](#testing)
-   - 5.1 Code Validation
-   - 5.2 Fixed bugs
-   - 5.3 Test cases
+   - 5.1 [Code Validation](#51-code-validation)
+   - 5.2 [Fixed bugs](#52-fixed-bugs)
+   - 5.3 [Supported screens and browsers](#53-supported-screens-and-browsers)
+   - 5.4 [Test cases](#54-test-cases)
+   - 5.5 [Automation test](#55-automation-test)
 6. [Deployment](#deployment)
 7. [Credits](#credits)
 
@@ -310,7 +312,7 @@ below it, the Users will also see the ```view our menu``` buttons so that Users 
    - [CSS3]()
    - [ElephantSQL](https://www.elephantsql.com/)
 
-### Frameworks, Toolkit & Software
+### Frameworks Toolkit Software
    - [Am I Responsive](https://ui.dev/amiresponsive) - online tool used to create mockup to present responsive design of this project.
    - [Balsamiq](https://balsamiq.com) - design tool used for creating wireframes.
    - [Bootsrap 5](https://getbootstrap.com/) - a CSS framework and toolkit used for developing responsive and mobile-first websites.
@@ -379,7 +381,185 @@ below it, the Users will also see the ```view our menu``` buttons so that Users 
       <details><summary>LightHouse DevTools report screen shot</summary>
             <p> <img src="static/images/readme/lighthouse.png"></p>    
       </details>
+[Back to top](#table-of-content)
       <hr>
+### 5.2 Fixed bugs
+-----
+   ```
+   var pagination = document.getElementById('pagination');
+   var paginationElement = document.querySelector('.pagination');
+
+   if (document.querySelectorAll('.card').length === 0 && paginationElement) {
+   paginationElement.style.display = 'none';
+   }
+
+   ```
+   <img src="static/images/readme/pagination-error-in-update-page.png">
+   
+   - to fix the bug:
+
+   ```
+   var paginationElement = document.querySelector('.pagination');
+   var cardElements = document.querySelectorAll('.card');
+
+   if (cardElements.length === 0 && paginationElement !== null) {
+   paginationElement.style.display = 'none';
+   }
+   ```
+-----
+   - Food list not rendering to home page our menu section view.
+   
+   <img src="static/images/readme/food-not-rendering.png">
+   
+   - to fix this bug:
+
+   <img src="static/images/readme/fix-food-not-rendering.png">
+-----
+
+
+[Back to top](#table-of-content)
+
+### 5.3 Supported screens and browsers
+- Supported browsers
+   - Google Chrome
+   - Microsoft Edge
+   - Safari
+
+- Supported screens
+   - Such a viewport was obtained from the am i responsive website where it was used to have an appropriate size for responsive design.
+   - Apple products:
+      - iPad Pro = 1024x1366px
+      - iPad and iPad Mini = 768x1024px
+      - iPad Air = 820x1180px
+      - iPhone 13 Pro Max = 428x926px
+      - iPhone 13, iPhone 13 Pro, iPhone 12 Pro = 390x844px
+      - iPhone X = 375x812px
+      - iPhone 5 = 320x568
+   - I used google developer tools to test the responsiveness of given iPad and iPhone devices.  
+
+[Back to top](#table-of-content)
+
+### 5.4 Test Cases
+   #### Homepage - User Logged Out
+
+| Test description | Status |
+| :---: | --- |
+| &check; | Clicking the Home button on the nav bar re-loads the home page |
+| &check; | clicking the About button on the nav bar scrolls down to the About me section of the homepage |
+| &check; | clicking the Menu button on the nav bar scrolls down to the Our menu section of the homepage |
+| &check; | clicking the View our menu button on the hero section scrolls down to Our menu section of the homepage |
+| &check; | clicking the Book a reservation button on the nav bar redirect to the add_reservation.html page but user can't see the booking form |
+| &check; | clicking the Login here button on the add_reservation.html page drops the login modal |
+| &check; | Clicking the Login button on the nav bar drops the login modal |
+| &check; | Clicking the Register button on the nav bar drops the registration modal |
+| &check; | The user could not see make a reservation button when clicking book a reservation button in the nav bar |
+| &check; | The user could not see view my reservation button when clicking book a reservation button in the nav bar ||
+| &check; | The user can see the list of food with food name, rate, description, and price in our menu section |
+| &check; | Clicking the Twitter link in the footer area opens Twitter |
+| &check; | Clicking the Facebook link in the footer area opens Facebook |
+| &check; | Clicking the Instagram link in the footer area opens Instagram |
+| &check; | Clicking the Tiktok link in the footer area opens Tiktok |
+
+   #### Homepage - User Logged In
+
+| Test description | Status |
+| :---: | --- |
+| &check; | Clicking the Home button on the nav bar re-loads the home page |
+| &check; | clicking the About button on the nav bar scrolls down to the About me section of the homepage |
+| &check; | clicking the Menu button on the nav bar scrolls down to the Our menu section of the homepage |
+| &check; | clicking the View our menu button on the hero section scrolls down to Our menu section of the homepage |
+| &check; | clicking the Book a reservation button on the nav bar drops down a list make a reservation and view resevation button |
+| &check; | Log in button could not be seen by user and change it into Welcome, name of user and logout button |
+| &check; | Clicking the Log out button on the nav bar redirect to home page |
+| &check; | The user can see make a reservation button when clicking book a reservation button in the nav bar |
+| &check; | The user can see view my reservation button when clicking book a reservation button in the nav bar |
+| &check; | The user could not see view my reservation button when clicking book a reservation button in the nav bar |
+| &check; | The user can see the list of food with food name, rate, description, and price in our menu section |
+| &check; | Clicking the Twitter link in the footer area opens Twitter |
+| &check; | Clicking the Facebook link in the footer area opens Facebook |
+| &check; | Clicking the Instagram link in the footer area opens Instagram |
+| &check; | Clicking the Tiktok link in the footer area opens Tiktok |
+
+   #### Make a reservation page - User Logged In
+
+| Test description | Status |
+| :---: | --- |
+| &check; | The user can view the add_reservation.html page book form |
+| &check; | The user cannot reserve a table when the view book form is not filled up except for the note |
+| &check; | When the user is trying to 'reserve table' without filling the form that is needed to be filled a message validation message shows up "Please fill out this field" |
+| &check; | When the user 'reserve table' with the date from the past an error message will pop up "Book date cannot be in the past" |
+| &check; | The user can only 'reserve table' a time between 10:00 to 19:00 or else error message will pop up "You can only reserve table between 10:00 to 19:00" |
+| &check; | When the user 'reserve table' with the date from the past and the time is not restaurant opening hours both error message pops up |
+| &check; | When the user 'reserve table' with more than maximum of no. of guest an error message shows up "Value must be less than or equal to 10" |
+| &check; | When the user already have reservation on that date an error message will pop up "You have already reserved a table for this date." |
+| &check; | When the user filled up a valid form and click 'reserve table' a success message validation shows up "Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!" |
+
+   
+   #### View my reservation page - User Logged In
+
+
+| Test description | Status |
+| :---: | --- |
+| &check; | The user can view the reservation_list.html page |
+| &check; | The user cannot view the pagination when the user doesnt book a reservation |
+| &check; | When the user does have a reservation, user can view the pagination |
+| &check; | When the user doesnt book a reservation yet the view is Reservation list empty |
+| &check; | clicking update button opens the update_reservation.html page |
+
+   #### Update reservation page - User Logged In
+
+| Test description | Status |
+| :---: | --- |
+| &check; | The user can view the update_reservation.html page |
+| &check; | The user cannot update the reservation when the view book form is not filled up except for the note |
+| &check; | When the user is trying to 'update' without filling the form that is needed to be filled a message validation message shows up "Please fill out this field" |
+| &check; | When the user 'update reservation' with the date from the past an error message will pop up "Book date cannot be in the past" |
+| &check; | The user can only 'update reservation' a time between 10:00 to 19:00 or else error message will pop up "You can only reserve table between 10:00 to 19:00" |
+| &check; | When the user 'update reservation' with the date from the past and the time is not restaurant opening hours both error message pops up |
+| &check; | When the user 'update reservation' with more than maximum of no. of guest an error message shows up "Value must be less than or equal to 10" |
+| &check; | When the user already have reservation on that date an error message will pop up "You have already reserved a table for this date." |
+| &check; | When the user filled up a valid form and click 'update' a success message validation shows up "Reservation updated successfully. We will call back or send an Email to confirm your reservation. Thank you!" |
+
+   #### Cancel reservation page - User Logged In
+
+| Test description | Status |
+| :---: | --- |
+| &check; | The user can view the delete_reservation_modal.html |
+| &check; | Clicking close button will redirect the user to reservation list page |
+| &check; | Clicking cancel reservation button will throw a validation "Your reservation is successfully canceled." it will delete the reservation and redirect to reservation list page |
+
+[Back to top](#table-of-content)
+
+### 5.5 Automation test
+#### The Total of this projects automation is 99%
+   - To run the Automation test
+      - change the database setting in settings.py into default database setting and uncomment the sql database
+      - run `coverage run --source=book manage.py test` into the terminal
+
+      <img src="static/images/readme/Screenshot 2023-03-19 224545.png">
+-----
+   - Coverage report
+      - There are two ways to view the coverage report 
+         1. Views into the terminal
+            - type `coverage report` into the terminal
+               <details><summary>coverage report screen shot</summary>
+               <p> <img src="static/images/readme/Screenshot 2023-03-19 224545.png"></p>
+               </details>
+         2. Views into the html page
+            - type `coverage html` into the terminal
+            - type `python3 -m http.server` then select open browser
+            - select htmlcov/
+               <details><summary>coverage report in browser screen shot</summary>
+               <p> <img src="static/images/readme/Screenshot 2023-03-19 225833.png"></p>
+               </details>
+-----
+#### Automation cannot fixed/missing
+   <details><summary>screen shot</summary>
+   <p> <img src="static/images/readme/Screenshot 2023-03-19 230553.png"></p>
+   <p> <img src="static/images/readme/Screenshot 2023-03-19 230625.png"></p>
+   </details>
+
+[Back to top](#table-of-content)
 
 ## Deployment
 

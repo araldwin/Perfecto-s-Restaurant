@@ -350,7 +350,7 @@ class UpdateReservationTest(TestCase):
         )
         self.reservation = Book.objects.create(
             user=self.user,
-            book_date=date(2023, 3, 10))
+            book_date=date(2024, 3, 10))
         self.url = reverse('update-reservation', args=[self.reservation.pk])
 
     def test_update_reservation_success(self):
@@ -358,7 +358,7 @@ class UpdateReservationTest(TestCase):
             'name': 'Aldwin Arriola',
             'phone': '1234567890',
             'email': 'araldwin@gmail.com',
-            'book_date': '2023-03-11',
+            'book_date': '2024-03-11',
             'book_time': '12:00',
             'people': 2,
             'message': '',
@@ -369,7 +369,7 @@ class UpdateReservationTest(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('list-reservation'))
         self.reservation.refresh_from_db()
-        self.assertEqual(self.reservation.book_date, date(2023, 3, 11))
+        self.assertEqual(self.reservation.book_date, date(2024, 3, 11))
 
 
 class DeleteReservationTestCase(TestCase):

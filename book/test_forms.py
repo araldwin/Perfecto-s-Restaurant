@@ -49,7 +49,7 @@ class BookFormTest(TestCase):
             'name': 'Aldwin Arriola',
             'phone': '123-456-7890',
             'email': 'araldwin@gmail.com',
-            'book_date': '2023-03-14',
+            'book_date': '2024-03-14',
             'book_time': '12:30',
             'people': '2',
         }
